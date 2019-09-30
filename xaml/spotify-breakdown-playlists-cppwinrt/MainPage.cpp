@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "MainPage.h"
 #include "MainPage.g.cpp"
+#include "cpprest/http_client.h"
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
@@ -40,6 +41,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		auto response = co_await WebAuthenticationBroker::AuthenticateAsync(
 			WebAuthenticationOptions::None,
 			uri);
+
+		web::uri_builder(spotifyAuthUri.c_str());
 
 		auto status = response.ResponseStatus();
     }
