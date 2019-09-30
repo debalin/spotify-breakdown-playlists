@@ -1,6 +1,6 @@
 # Breakdown Spotify playlists based on artist genre or mood
 
-## Workflow summary
+## Basic workflow summary
 
 1. User logs in to Spotify.
 2. Display all playlists they have.
@@ -23,3 +23,7 @@ Windows 10 UWP
 1. `cpprestsdk`
 2. `C++/WinRT`
 3. `XAML`
+
+## Current status
+
+Blank sample app with Spotify authentication. Work in progress.
