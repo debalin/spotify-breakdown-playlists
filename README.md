@@ -16,14 +16,13 @@
 
 ## Platform
 
-Windows 10 UWP
+Windows 10
 
 ## Technologies
 
-1. `cpprestsdk`
-2. `C++/WinRT`
-3. `XAML`
+1. `C++/WinRT`
+2. `XAML`
 
 ## Current status
 
-Blank sample app with Spotify authentication. Work in progress.
+Blank sample app with Spotify authentication. Work in progress. `console` folder is empty. `xaml` has the project that is being worked on. 
