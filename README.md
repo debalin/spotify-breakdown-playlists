@@ -6,8 +6,8 @@
 2. Display all playlists they have.
 3. User selects one playlist.
 4. Ask if the user wants to break it down by: 
-	a. Artist genre - get genres from song artist
-	b. Mood of the song - get track analysis from Spotify Web API, need to figure out if we can allow user to tune this categorization
+	* Artist genre - get genres from song artist
+	* Mood of the song - get track analysis from Spotify Web API, need to figure out if we can allow user to tune this categorization
 5. Show suggested breakdown into multiple lists.
 6. User can stream songs directly from those lists in the app (needed?).
 7. User can rename the broken down lists.
