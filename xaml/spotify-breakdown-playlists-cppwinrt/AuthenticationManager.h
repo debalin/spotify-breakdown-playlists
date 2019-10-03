@@ -3,11 +3,24 @@
 class AuthenticationManager
 {
 public:
-	AuthenticationManager();
+	enum class Mode
+	{
+		ImplicitGrant
+	};
 
-	void authenticate();
+	AuthenticationManager(Mode mode);
+
+	IAsyncOperation<winrt::hstring> AuthenticateAsync();
+	std::wstring GetAccessToken();
+	int SecondsLeft();
+
 private:
-	static const std::wstring s_clientId;
-	static const std::wstring s_redirectUri;
+	Mode m_mode;
+
+	std::wstring m_accessToken;
+	std::wstring m_redirectUri;
+
+	int m_expiresIn;
+	int m_lastAuthenticatedAt;
 };
 
