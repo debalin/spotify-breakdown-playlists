@@ -34,5 +34,5 @@ std::wstring AuthenticationManager::GetAccessToken()
 
 int AuthenticationManager::SecondsLeft()
 {
-	return 0;
+	throw_hresult(E_NOTIMPL);
 }
