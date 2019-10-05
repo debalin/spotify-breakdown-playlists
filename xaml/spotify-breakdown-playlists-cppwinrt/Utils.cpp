@@ -19,3 +19,19 @@ std::wstring Utils::FormUri(
 
 	return formedUri;
 }
+
+std::wstring Utils::GetQueryValue(
+	const std::wstring& uri, 
+	const std::wstring& queryParameter)
+{
+	auto queryParamSize = queryParameter.size() + 1; // 1 for the "=" sign after the parameter.
+	auto queryParamPosition = uri.find(queryParameter);
+	auto queryValuePosition = queryParamPosition + queryParamSize;
+	auto nextQueryPosition = uri.find(HttpConstants::g_Ampersand, queryValuePosition);
+
+	auto value = uri.substr(queryValuePosition, 
+		(nextQueryPosition != std::wstring::npos) ? 
+		(nextQueryPosition - queryValuePosition) :
+		uri.size());
+	return value;
+}

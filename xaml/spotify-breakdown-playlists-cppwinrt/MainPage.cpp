@@ -22,6 +22,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	IAsyncOperation<winrt::hstring> MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
     {
-		return co_await m_authManager.AuthenticateAsync();
+		return winrt::hstring(co_await m_authManager.AuthenticateAsync());
     }
 }
