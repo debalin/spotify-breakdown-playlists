@@ -2,10 +2,13 @@
 
 #include "App.h"
 #include "MainPage.h"
+using namespace winrt::Windows::UI;
+using namespace winrt::Windows::UI::ViewManagement;
 
 using namespace winrt;
 using namespace Windows::ApplicationModel;
 using namespace Windows::ApplicationModel::Activation;
+using namespace Windows::ApplicationModel::Core;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
@@ -73,10 +76,18 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
                 // parameter
                 rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::MainPage>(), box_value(e.Arguments()));
             }
-            // Place the frame in the current Window
+            
+			// Place the frame in the current Window
             Window::Current().Content(rootFrame);
+
             // Ensure the current window is active
             Window::Current().Activate();
+
+			CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(true);
+
+			auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
+			titleBar.ButtonBackgroundColor(IReference<Color>(Colors::Transparent()));
+			titleBar.ButtonInactiveBackgroundColor(IReference<Color>(Colors::Transparent()));
         }
     }
     else
@@ -90,8 +101,15 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
                 // parameter
                 rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::MainPage>(), box_value(e.Arguments()));
             }
+
             // Ensure the current window is active
             Window::Current().Activate();
+
+			CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(true);
+
+			auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
+			titleBar.ButtonBackgroundColor(IReference<Color>(Colors::Transparent()));
+			titleBar.ButtonInactiveBackgroundColor(IReference<Color>(Colors::Transparent()));
         }
     }
 }

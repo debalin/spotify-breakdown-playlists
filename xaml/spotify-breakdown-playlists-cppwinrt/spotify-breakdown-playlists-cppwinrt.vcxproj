@@ -123,15 +123,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\LockScreenLogo.scale-200.png" />
-    <Image Include="Assets\SplashScreen.scale-200.png" />
-    <Image Include="Assets\Square150x150Logo.scale-200.png" />
-    <Image Include="Assets\Square44x44Logo.scale-200.png" />
-    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Image Include="Assets\StoreLogo.png" />
-    <Image Include="Assets\Wide310x150Logo.scale-200.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="AuthenticationManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -157,10 +148,19 @@
     <None Include="packages.config" />
     <None Include="PropertySheet.props" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Spotify_Logo_RGB_Green.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Montserrat-Light.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets')" />
     <Import Project="..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.targets" Condition="Exists('..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.targets')" />
+    <Import Project="..\packages\Microsoft.UI.Xaml.2.2.190917002\build\native\Microsoft.UI.Xaml.targets" Condition="Exists('..\packages\Microsoft.UI.Xaml.2.2.190917002\build\native\Microsoft.UI.Xaml.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -170,5 +170,6 @@
     <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets'))" />
     <Error Condition="!Exists('..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.props'))" />
     <Error Condition="!Exists('..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\vcpkg.C.Code.vcpkg.1.0.0\build\native\vcpkg.C.Code.vcpkg.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.UI.Xaml.2.2.190917002\build\native\Microsoft.UI.Xaml.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.UI.Xaml.2.2.190917002\build\native\Microsoft.UI.Xaml.targets'))" />
   </Target>
 </Project>

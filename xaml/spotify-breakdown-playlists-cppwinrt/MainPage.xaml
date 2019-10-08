@@ -4,12 +4,28 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+	FontFamily="Montserrat Light"
 	mc:Ignorable="d">
 
 	<StackPanel
 		HorizontalAlignment="Center"
 		VerticalAlignment="Center"
-		Orientation="Horizontal">
-		<Button x:Name="myButton" Click="ClickHandler">Click Me</Button>
+		Orientation="Vertical">
+		<TextBlock
+			Margin="0,0,20,-20"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			FontSize="24"
+			Foreground="#FF1ED760"><Run Text="Login via" /></TextBlock>
+		<Button
+			x:Name="loginButton"
+			Background="{x:Null}"
+			Click="ClickHandler">
+			<Image
+				Width="300"
+				Source="/Assets/Spotify_Logo_RGB_Green.png"
+				Stretch="Uniform" />
+		</Button>
 	</StackPanel>
 </Page>
