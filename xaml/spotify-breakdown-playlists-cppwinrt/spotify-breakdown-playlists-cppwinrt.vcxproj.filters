@@ -56,9 +56,13 @@
     <Page Include="MainPage.xaml">
       <Filter>Xaml</Filter>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)DensityStyles\Compact.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Spotify_Logo_RGB_Green.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>

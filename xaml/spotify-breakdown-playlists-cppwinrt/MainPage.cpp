@@ -10,8 +10,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
     MainPage::MainPage()
     {
         InitializeComponent();
-
-		CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar();
     }
 
     int32_t MainPage::MyProperty()

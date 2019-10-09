@@ -149,6 +149,7 @@
     <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\SplashScreen.png" />
     <Image Include="Assets\Spotify_Logo_RGB_Green.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </Image>
