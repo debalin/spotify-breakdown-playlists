@@ -13,11 +13,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
         MainPage();
 
-		int32_t MyProperty();
-        void MyProperty(int32_t value);
-
         IAsyncOperation<winrt::hstring> ClickHandler(IInspectable const& sender, RoutedEventArgs const& args);
-    };
+		void loginButton_PointerEntered(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Input::PointerRoutedEventArgs const& e);
+		void loginButton_PointerExited(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::Input::PointerRoutedEventArgs const& e);
+	};
 }
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation

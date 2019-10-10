@@ -8,6 +8,7 @@
 #include <windows.h>
 #include "winrt/Microsoft.UI.Xaml.Automation.Peers.h"
 #include "winrt/Microsoft.UI.Xaml.Controls.Primitives.h"
+#include "winrt/Windows.UI.Xaml.Input.h"
 #include "winrt/Microsoft.UI.Xaml.Media.h"
 #include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
 #include <winrt/Windows.Foundation.h>
@@ -24,6 +25,7 @@
 #include <winrt/Windows.Security.Authentication.Web.h>
 #include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Windows.UI.h>
+#include <winrt/Windows.UI.Core.h>
 
 using namespace winrt;
 using namespace winrt::Windows::Foundation;

@@ -7,6 +7,7 @@
 	FontFamily="Montserrat Light"
 	mc:Ignorable="d">
 
+
 	<StackPanel
 		HorizontalAlignment="Center"
 		VerticalAlignment="Center"
@@ -20,11 +21,27 @@
 		<Button
 			x:Name="loginButton"
 			Background="{x:Null}"
-			Click="ClickHandler">
+			Click="ClickHandler"
+			PointerEntered="loginButton_PointerEntered"
+			PointerExited="loginButton_PointerExited">
 			<Image
 				Width="300"
 				Source="/Assets/Spotify_Logo_RGB_Green.png"
 				Stretch="Uniform" />
+			<Button.Resources>
+				<ResourceDictionary>
+					<ResourceDictionary.ThemeDictionaries>
+						<ResourceDictionary x:Key="Dark">
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Red" />
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent" />
+						</ResourceDictionary>
+						<ResourceDictionary x:Key="Light">
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Red" />
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Transparent" />
+						</ResourceDictionary>
+					</ResourceDictionary.ThemeDictionaries>
+				</ResourceDictionary>
+			</Button.Resources>
 		</Button>
 	</StackPanel>
 </Page>

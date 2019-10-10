@@ -4,6 +4,5 @@ namespace spotify_breakdown_playlists_cppwinrt
     runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
     {
         MainPage();
-        Int32 MyProperty;
     }
 }
