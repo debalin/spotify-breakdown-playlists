@@ -24,10 +24,12 @@ IAsyncOperation<winrt::hstring> AuthenticationManager::AuthenticateAsync()
 		WebAuthenticationOptions::None,
 		uri);
 
-	m_accessToken = Utils::GetQueryValue(response.ResponseData().c_str(), 
+	m_accessToken = Utils::GetQueryValue(
+		response.ResponseData().c_str(), 
 		SpotifyQueryConstants::g_accessToken);
 
-	m_expiresIn = std::stoi(Utils::GetQueryValue(response.ResponseData().c_str(),
+	m_expiresIn = std::stoi(Utils::GetQueryValue(
+		response.ResponseData().c_str(),
 		SpotifyQueryConstants::g_expiresIn));
 
 	return winrt::hstring(m_accessToken);

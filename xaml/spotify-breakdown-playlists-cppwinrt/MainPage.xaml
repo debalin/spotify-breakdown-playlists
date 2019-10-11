@@ -21,7 +21,7 @@
 		<Button
 			x:Name="loginButton"
 			Background="{x:Null}"
-			Click="ClickHandler"
+			Click="LoginHandler"
 			PointerEntered="loginButton_PointerEntered"
 			PointerExited="loginButton_PointerExited">
 			<Image

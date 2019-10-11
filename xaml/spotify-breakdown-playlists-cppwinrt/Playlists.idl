@@ -1,0 +1,8 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+    [default_interface]
+    runtimeclass Playlists : Windows.UI.Xaml.Controls.Page
+    {
+        Playlists();
+    }
+}

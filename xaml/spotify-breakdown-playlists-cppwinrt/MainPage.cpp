@@ -2,6 +2,7 @@
 
 #include "MainPage.h"
 #include "MainPage.g.cpp"
+#include <Playlists.h>
 
 using namespace Windows::ApplicationModel::Core;
 using namespace winrt::Windows::UI::Xaml::Input;
@@ -14,11 +15,17 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
         InitializeComponent();
     }
 
-	IAsyncOperation<winrt::hstring> MainPage::ClickHandler(
+	IAsyncOperation<winrt::hstring> MainPage::LoginHandler(
 		IInspectable const&, 
-		RoutedEventArgs const&)
+		RoutedEventArgs const& e)
     {
-		return winrt::hstring(co_await m_authManager.AuthenticateAsync());
+		auto accessToken = co_await m_authManager.AuthenticateAsync();
+
+		this->Frame().Navigate(
+			xaml_typename<spotify_breakdown_playlists_cppwinrt::Playlists>(), 
+			box_value(winrt::to_hstring(accessToken)));
+
+		return accessToken;
     }
 
 	void MainPage::loginButton_PointerEntered(
