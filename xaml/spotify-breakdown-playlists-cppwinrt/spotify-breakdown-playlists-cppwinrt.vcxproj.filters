@@ -11,6 +11,12 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Playlist.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthenticationManager.h">
@@ -23,6 +29,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Playlist.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpManager.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

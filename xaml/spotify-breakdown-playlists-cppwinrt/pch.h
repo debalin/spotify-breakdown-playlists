@@ -26,6 +26,9 @@
 #include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Windows.UI.h>
 #include <winrt/Windows.UI.Core.h>
+#include <winrt/Windows.Web.Http.h>
+#include <winrt/Windows.Web.Http.Headers.h>
+#include <nlohmann/json.hpp>
 
 using namespace winrt;
 using namespace winrt::Windows::Foundation;

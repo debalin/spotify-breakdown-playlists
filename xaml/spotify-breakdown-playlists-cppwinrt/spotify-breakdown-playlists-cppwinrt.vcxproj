@@ -100,6 +100,7 @@
   <ItemGroup>
     <ClInclude Include="AuthenticationManager.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="HttpManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.h">
       <DependentUpon>App.xaml</DependentUpon>
@@ -107,6 +108,7 @@
     <ClInclude Include="MainPage.h">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="Playlist.h" />
     <ClInclude Include="Playlists.h">
       <DependentUpon>Playlists.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -131,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AuthenticationManager.cpp" />
+    <ClCompile Include="HttpManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -141,6 +144,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Playlist.cpp" />
     <ClCompile Include="Playlists.cpp">
       <DependentUpon>Playlists.xaml</DependentUpon>
       <SubType>Code</SubType>

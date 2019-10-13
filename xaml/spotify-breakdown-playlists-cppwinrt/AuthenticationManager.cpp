@@ -20,17 +20,22 @@ IAsyncOperation<winrt::hstring> AuthenticationManager::AuthenticateAsync()
 
 	Uri uri(authUri);
 
-	WebAuthenticationResult response = co_await WebAuthenticationBroker::AuthenticateAsync(
-		WebAuthenticationOptions::None,
-		uri);
+	try
+	{
+		WebAuthenticationResult response = co_await WebAuthenticationBroker::AuthenticateAsync(
+			WebAuthenticationOptions::None,
+			uri);
 
-	m_accessToken = Utils::GetQueryValue(
-		response.ResponseData().c_str(), 
-		SpotifyQueryConstants::g_accessToken);
+		m_accessToken = Utils::GetQueryValue(
+			response.ResponseData().c_str(),
+			SpotifyQueryConstants::g_accessToken);
 
-	m_expiresIn = std::stoi(Utils::GetQueryValue(
-		response.ResponseData().c_str(),
-		SpotifyQueryConstants::g_expiresIn));
+		m_expiresIn = std::stoi(Utils::GetQueryValue(
+			response.ResponseData().c_str(),
+			SpotifyQueryConstants::g_expiresIn));
+	}
+	catch (...)
+	{ }
 
 	return winrt::hstring(m_accessToken);
 }
