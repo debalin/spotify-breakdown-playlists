@@ -6,7 +6,6 @@
 #include "Constants.h"
 #include "Utils.h"
 
-using namespace winrt;
 using namespace Windows::UI::Xaml;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation

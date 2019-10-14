@@ -8,6 +8,7 @@ namespace Utils
 	std::string WStringToString(const std::wstring& input);
 };
 
+// To make sure .get<std::wstring> works for nlohmann::json.
 namespace nlohmann {
 	template <>
 	struct adl_serializer<std::wstring> {
