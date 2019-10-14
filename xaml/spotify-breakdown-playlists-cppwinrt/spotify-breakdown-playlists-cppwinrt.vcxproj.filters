@@ -17,6 +17,9 @@
     <ClCompile Include="HttpManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Constants.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthenticationManager.h">

@@ -11,8 +11,10 @@ namespace HttpConstants
 
 namespace SpotifyUriConstants
 {
-	const std::wstring g_SpotifyAuthUri = L"https://accounts.spotify.com/authorize";
-	const std::wstring g_SpotifyMeUri = L"https://api.spotify.com/v1/me";
+	const std::wstring g_Authorize = L"https://accounts.spotify.com/authorize";
+	const std::wstring g_Me = L"https://api.spotify.com/v1/me";
+
+	std::wstring g_Playlists(const std::wstring& userId);
 }
 
 namespace SpotifyQueryConstants

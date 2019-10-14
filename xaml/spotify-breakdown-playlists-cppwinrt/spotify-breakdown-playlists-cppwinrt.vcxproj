@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AuthenticationManager.cpp" />
+    <ClCompile Include="Constants.cpp" />
     <ClCompile Include="HttpManager.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

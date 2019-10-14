@@ -16,7 +16,7 @@ IAsyncOperation<winrt::hstring> AuthenticationManager::AuthenticateAsync()
 	spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ClientIdParam, SpotifyQueryConstants::g_ClientIdValue));
 	spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_RedirectUriParam, m_redirectUri));
 	spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ResponseTypeParam, SpotifyQueryConstants::g_ResponseTypeValue));
-	std::wstring authUri = Utils::FormUri(SpotifyUriConstants::g_SpotifyAuthUri, spotifyAuthParams);
+	std::wstring authUri = Utils::FormUri(SpotifyUriConstants::g_Authorize, spotifyAuthParams);
 
 	Uri uri(authUri);
 

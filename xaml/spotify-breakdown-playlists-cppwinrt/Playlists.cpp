@@ -18,12 +18,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	IAsyncOperation<winrt::hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
 	{
 		m_accessToken = unbox_value<winrt::hstring>(e.Parameter()).c_str();
-
 		m_requestor = HttpManager(m_accessToken);
-
 		m_userId = co_await m_requestor.Request(
-			SpotifyUriConstants::g_SpotifyMeUri, 
+			SpotifyUriConstants::g_Me, 
 			SpotifyQueryConstants::g_Id);
+
+		auto playlistsStr = co_await m_requestor.Request(SpotifyUriConstants::g_Playlists(m_userId));
 
 		return winrt::hstring(m_accessToken);
 	}
