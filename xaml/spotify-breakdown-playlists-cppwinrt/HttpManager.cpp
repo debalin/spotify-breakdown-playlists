@@ -2,35 +2,38 @@
 #include "HttpManager.h"
 #include "Utils.h"
 
-HttpManager::HttpManager(const std::wstring& accessToken) :
-	m_accessToken(accessToken)
+namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
-
-}
-
-IAsyncOperation<winrt::hstring> HttpManager::Request(const std::wstring& uri)
-{
-	if (m_accessToken.empty())
+	HttpManager::HttpManager(const std::wstring& accessToken) :
+		m_accessToken(accessToken)
 	{
-		throw std::exception("No access token provided.");
+
 	}
 
-	m_httpClient.DefaultRequestHeaders().Authorization(winrt::Windows::Web::Http::Headers::HttpCredentialsHeaderValue(
-		L"Bearer", 
-		m_accessToken));
+	IAsyncOperation<winrt::hstring> HttpManager::Request(const std::wstring& uri)
+	{
+		if (m_accessToken.empty())
+		{
+			throw std::exception("No access token provided.");
+		}
 
-	return co_await m_httpClient.GetStringAsync(Uri(uri));
-}
+		m_httpClient.DefaultRequestHeaders().Authorization(winrt::Windows::Web::Http::Headers::HttpCredentialsHeaderValue(
+			L"Bearer",
+			m_accessToken));
 
-IAsyncOperation<winrt::hstring> HttpManager::Request(
-	const std::wstring& uri, 
-	const std::wstring& responseParam)
-{
-	winrt::hstring value;
+		return co_await m_httpClient.GetStringAsync(Uri(uri));
+	}
 
-	const auto response = co_await Request(uri);
-	const auto responseJson = json::parse(std::wstring(response.c_str()));
+	IAsyncOperation<winrt::hstring> HttpManager::Request(
+		const std::wstring& uri,
+		const std::wstring& responseParam)
+	{
+		winrt::hstring value;
 
-	value = responseJson.at(Utils::WStringToString(responseParam)).get<std::wstring>();
-	return value;
+		const auto response = co_await Request(uri);
+		const auto responseJson = json::parse(std::wstring(response.c_str()));
+
+		value = responseJson.at(to_mbs(responseParam)).get<std::wstring>();
+		return value;
+	}
 }

@@ -1,18 +1,21 @@
 #pragma once
 
-class HttpManager
+namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
-public:
-	HttpManager() { };
-	HttpManager(const std::wstring& accessToken);
+	class HttpManager
+	{
+	public:
+		HttpManager() { };
+		HttpManager(const std::wstring& accessToken);
 
-	IAsyncOperation<winrt::hstring> Request(const std::wstring& uri);
+		IAsyncOperation<winrt::hstring> Request(const std::wstring& uri);
 
-	// It assumes that the response is in JSON.
-	IAsyncOperation<winrt::hstring> Request(const std::wstring& uri, const std::wstring& responseParam);
+		// It assumes that the response is in JSON.
+		IAsyncOperation<winrt::hstring> Request(const std::wstring& uri, const std::wstring& responseParam);
 
-private:
-	std::wstring m_accessToken;
-	Windows::Web::Http::HttpClient m_httpClient{};
-};
+	private:
+		std::wstring m_accessToken;
+		Windows::Web::Http::HttpClient m_httpClient{};
+	};
+}
 

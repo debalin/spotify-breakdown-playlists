@@ -23,8 +23,22 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 			SpotifyUriConstants::g_Me, 
 			SpotifyQueryConstants::g_Id);
 
-		auto playlistsStr = co_await m_requestor.Request(SpotifyUriConstants::g_Playlists(m_userId));
+		co_await CollectPlaylists();
 
 		return winrt::hstring(m_accessToken);
+	}
+
+	IAsyncOperation<winrt::hstring> Playlists::CollectPlaylists()
+	{
+		auto playlistsStr = co_await m_requestor.Request(SpotifyUriConstants::g_Playlists(m_userId));
+
+		json playlistsJson = json::parse(std::wstring(playlistsStr.c_str()));
+
+		for (const auto& item : playlistsJson.at(to_mbs(SpotifyQueryConstants::g_Items)))
+		{
+			m_playlists.push_back(item.get<Playlist>());
+		}
+
+		return L"";
 	}
 }

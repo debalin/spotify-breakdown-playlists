@@ -1,26 +1,29 @@
 #pragma once
 
-class AuthenticationManager
+namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
-public:
-	enum class Mode
+	class AuthenticationManager
 	{
-		ImplicitGrant
+	public:
+		enum class Mode
+		{
+			ImplicitGrant
+		};
+
+		AuthenticationManager(Mode mode);
+
+		IAsyncOperation<winrt::hstring> AuthenticateAsync();
+		std::wstring GetAccessToken();
+		int SecondsLeft();
+
+	private:
+		Mode m_mode;
+
+		std::wstring m_accessToken;
+		std::wstring m_redirectUri;
+
+		int m_expiresIn;
+		int m_lastAuthenticatedAt;
 	};
-
-	AuthenticationManager(Mode mode);
-
-	IAsyncOperation<winrt::hstring> AuthenticateAsync();
-	std::wstring GetAccessToken();
-	int SecondsLeft();
-
-private:
-	Mode m_mode;
-
-	std::wstring m_accessToken;
-	std::wstring m_redirectUri;
-
-	int m_expiresIn;
-	int m_lastAuthenticatedAt;
-};
+}
 

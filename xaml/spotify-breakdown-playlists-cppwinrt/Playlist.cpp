@@ -1,7 +1,10 @@
 #include "pch.h"
 #include "Playlist.h"
 
-std::vector<Playlist> Playlist::GetPlaylists(const std::wstring& playlistsJson)
+namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
-	return std::vector<Playlist>();
+	std::vector<Playlist> Playlist::GetPlaylists(const std::wstring& playlistsJson)
+	{
+		return std::vector<Playlist>();
+	}
 }

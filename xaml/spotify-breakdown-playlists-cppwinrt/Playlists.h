@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Playlists.g.h"
-#include "AuthenticationManager.h"
 #include "HttpManager.h"
 #include "Playlist.h"
 
@@ -11,6 +10,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
     struct Playlists : PlaylistsT<Playlists>
     {
+	public:
 		Playlists();
 
 		IAsyncOperation<winrt::hstring> OnNavigatedTo(NavigationEventArgs e);
@@ -18,8 +18,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	private:
 		std::wstring m_accessToken;
 		std::wstring m_userId;
-		std::vector<Playlist> m_playLists;
+		std::vector<Playlist> m_playlists;
 		HttpManager m_requestor;
+
+		IAsyncOperation<winrt::hstring> CollectPlaylists();
     };
 }
 
