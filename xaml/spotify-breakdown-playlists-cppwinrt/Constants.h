@@ -28,4 +28,6 @@ namespace SpotifyQueryConstants
 	const std::wstring g_accessToken = L"access_token";
 
 	const std::wstring g_expiresIn = L"expires_in";
+
+	const std::wstring g_Id = L"id";
 }

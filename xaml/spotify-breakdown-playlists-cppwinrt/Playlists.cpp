@@ -8,7 +8,6 @@
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
-using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
@@ -23,12 +22,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		m_requestor = HttpManager(m_accessToken);
 
-		auto response = co_await m_requestor.Request(SpotifyUriConstants::g_SpotifyMeUri);
+		m_userId = co_await m_requestor.Request(
+			SpotifyUriConstants::g_SpotifyMeUri, 
+			SpotifyQueryConstants::g_Id);
 
-		json j = json::parse(std::wstring(response.c_str()));
-
-		auto userId = j.at("id").get<std::string>();
-
-		return response;
+		return winrt::hstring(m_accessToken);
 	}
 }
