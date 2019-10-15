@@ -1,22 +1,26 @@
-#pragma once
+﻿#pragma once
 
-namespace winrt::spotify_breakdown_playlists_cppwinrt
+#include "Playlist.g.h"
+
+namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-	class Playlist
-	{
+    struct Playlist : PlaylistT<Playlist>
+    {
 	public:
-		std::wstring Name;
+        Playlist() = default;
+		Playlist(const winrt::hstring& itemJson);
 
-		static std::vector<Playlist> GetPlaylists(const std::wstring& playlistsJson);
-	};
+        std::wstring m_Name;
+		winrt::hstring Name();
+		void Name(const winrt::hstring&);
 
-	inline void to_json(json& j, const Playlist& p)
-	{
-		j = json{ {"name", p.Name} };
-	}
+	private:
+    };
+}
 
-	inline void from_json(const json& j, Playlist& p)
-	{
-		j.at("name").get_to(p.Name);
-	}
+namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation
+{
+    struct Playlist : PlaylistT<Playlist, implementation::Playlist>
+    {
+    };
 }

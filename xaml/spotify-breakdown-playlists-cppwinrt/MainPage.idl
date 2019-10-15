@@ -3,6 +3,6 @@ namespace spotify_breakdown_playlists_cppwinrt
     [default_interface]
     runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
     {
-        MainPage();
+        MainPage();		
     }
 }

@@ -108,7 +108,10 @@
     <ClInclude Include="MainPage.h">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="Playlist.h" />
+    <ClInclude Include="Playlist.h">
+      <DependentUpon>Playlist.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="Playlists.h">
       <DependentUpon>Playlists.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -145,7 +148,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="Playlist.cpp" />
+    <ClCompile Include="Playlist.cpp">
+      <DependentUpon>Playlist.idl</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="Playlists.cpp">
       <DependentUpon>Playlists.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -158,6 +164,9 @@
     </Midl>
     <Midl Include="MainPage.idl">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Midl>
+    <Midl Include="Playlist.idl">
+      <SubType>Designer</SubType>
     </Midl>
     <Midl Include="Playlists.idl">
       <DependentUpon>Playlists.xaml</DependentUpon>

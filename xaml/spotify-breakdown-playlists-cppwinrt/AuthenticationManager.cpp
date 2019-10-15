@@ -29,11 +29,11 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 
 			m_accessToken = Utils::GetQueryValue(
 				response.ResponseData().c_str(),
-				SpotifyQueryConstants::g_accessToken);
+				SpotifyQueryConstants::g_AccessToken);
 
 			m_expiresIn = std::stoi(Utils::GetQueryValue(
 				response.ResponseData().c_str(),
-				SpotifyQueryConstants::g_expiresIn));
+				SpotifyQueryConstants::g_ExpiresIn));
 		}
 		catch (...)
 		{

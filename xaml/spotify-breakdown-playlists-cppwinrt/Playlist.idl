@@ -1,0 +1,9 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+	runtimeclass Playlist
+    {
+        Playlist();
+		Playlist(String itemJson);
+		String Name{ get; };
+    }
+}

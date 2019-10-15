@@ -13,15 +13,23 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	public:
 		Playlists();
 
+		// Retreives collection of Photo objects for thumbnail view.
+		Windows::Foundation::Collections::IVector<Windows::Foundation::IInspectable> SpotifyPlaylists() const
+		{
+			return m_playlists;
+		}
+
 		IAsyncOperation<winrt::hstring> OnNavigatedTo(NavigationEventArgs e);
 
 	private:
 		std::wstring m_accessToken;
 		std::wstring m_userId;
-		std::vector<Playlist> m_playlists;
 		HttpManager m_requestor;
 
 		IAsyncOperation<winrt::hstring> CollectPlaylists();
+
+		// Backing field for Playlist collection.
+		Windows::Foundation::Collections::IVector<IInspectable> m_playlists{ nullptr };
     };
 }
 

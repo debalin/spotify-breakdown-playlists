@@ -11,9 +11,6 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Playlist.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="HttpManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -32,9 +29,6 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Playlist.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="HttpManager.h">
@@ -60,6 +54,9 @@
     </Filter>
     <Filter Include="Assets">
       <UniqueIdentifier>{724362f7-6941-437c-821e-2cd98be39541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{70ae929e-f10a-4842-bbf5-b9f0a6b9ed83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,5 +85,10 @@
     <Font Include="Assets\Montserrat-Light.ttf">
       <Filter>Assets</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Playlist.idl">
+      <Filter>Model</Filter>
+    </Midl>
   </ItemGroup>
 </Project>
