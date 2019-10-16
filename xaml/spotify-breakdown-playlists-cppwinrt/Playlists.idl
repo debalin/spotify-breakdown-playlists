@@ -1,9 +1,11 @@
+import "Playlist.idl";
+
 namespace spotify_breakdown_playlists_cppwinrt
 {
     [default_interface]
     runtimeclass Playlists : Windows.UI.Xaml.Controls.Page
     {
         Playlists();
-		Windows.Foundation.Collections.IVector<IInspectable> SpotifyPlaylists{ get; };
+		Windows.Foundation.Collections.IVector<Playlist> SpotifyPlaylists{ get; };
     }
 }

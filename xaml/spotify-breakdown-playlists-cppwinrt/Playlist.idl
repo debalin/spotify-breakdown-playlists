@@ -1,6 +1,6 @@
 namespace spotify_breakdown_playlists_cppwinrt
 {
-	runtimeclass Playlist
+	runtimeclass Playlist : Windows.UI.Xaml.Data.INotifyPropertyChanged
     {
         Playlist();
 		Playlist(String itemJson);

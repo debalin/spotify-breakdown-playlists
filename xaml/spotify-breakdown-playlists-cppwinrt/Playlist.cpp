@@ -5,7 +5,6 @@
 #endif
 #include "Constants.h"
 
-using namespace winrt;
 using namespace Windows::UI::Xaml;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
@@ -24,5 +23,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	void Playlist::Name(const winrt::hstring& name)
 	{
 		m_Name = name.c_str();
+	}
+	winrt::event_token Playlist::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
+	{
+		return m_propertyChanged.add(value);
+	}
+
+	void Playlist::PropertyChanged(winrt::event_token const& token)
+	{
+		m_propertyChanged.remove(token);
 	}
 }

@@ -32,8 +32,8 @@
 
 using namespace winrt;
 using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Foundation::Collections;
 using namespace winrt::Windows::Security::Authentication::Web;
-
 using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt

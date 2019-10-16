@@ -7,12 +7,20 @@
 #include "Utils.h"
 
 using namespace Windows::UI::Xaml;
+using namespace winrt::Windows::UI::Xaml::Navigation;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
 	Playlists::Playlists()
 	{
 		InitializeComponent();
+
+		m_playlists = single_threaded_vector<spotify_breakdown_playlists_cppwinrt::Playlist>();
+	}
+
+	IVector<spotify_breakdown_playlists_cppwinrt::Playlist> Playlists::SpotifyPlaylists() const
+	{
+		return m_playlists;
 	}
 
 	IAsyncOperation<winrt::hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
@@ -36,7 +44,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		for (const auto& item : playlistsJson.at(to_mbs(SpotifyQueryConstants::g_Items)))
 		{
-			auto playlist = winrt::make<Playlist>(winrt::to_hstring(item.dump()));
+			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(winrt::to_hstring(item.dump()));
 			SpotifyPlaylists().Append(playlist);
 		}
 

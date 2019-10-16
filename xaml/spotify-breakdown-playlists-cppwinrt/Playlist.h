@@ -10,11 +10,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
         Playlist() = default;
 		Playlist(const winrt::hstring& itemJson);
 
-        std::wstring m_Name;
-		winrt::hstring Name();
-		void Name(const winrt::hstring&);
+		hstring Name();
+		void Name(const hstring&);
+		event_token PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value);
+		void PropertyChanged(event_token const& token);
 
 	private:
+		event<Windows::UI::Xaml::Data::PropertyChangedEventHandler> m_propertyChanged;
+		std::wstring m_Name;
     };
 }
 
