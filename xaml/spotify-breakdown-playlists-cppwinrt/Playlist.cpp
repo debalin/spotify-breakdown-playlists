@@ -5,7 +5,9 @@
 #endif
 #include "Constants.h"
 
-using namespace Windows::UI::Xaml;
+using namespace winrt;
+using namespace winrt::Windows::UI::Xaml;
+using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {

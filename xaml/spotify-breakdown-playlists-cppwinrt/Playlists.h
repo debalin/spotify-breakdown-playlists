@@ -11,16 +11,16 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	public:
 		Playlists();
 
-		IVector<spotify_breakdown_playlists_cppwinrt::Playlist> SpotifyPlaylists() const;
-		IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
+		Windows::Foundation::Collections::IVector<spotify_breakdown_playlists_cppwinrt::Playlist> SpotifyPlaylists() const;
+		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
 
 	private:
 		std::wstring m_accessToken;
 		std::wstring m_userId;
 		HttpManager m_requestor;
 
-		IAsyncOperation<hstring> CollectPlaylists();
-		IVector<spotify_breakdown_playlists_cppwinrt::Playlist> m_playlists{ nullptr };
+		Windows::Foundation::IAsyncOperation<hstring> CollectPlaylists();
+		Windows::Foundation::Collections::IVector<spotify_breakdown_playlists_cppwinrt::Playlist> m_playlists{ nullptr };
     };
 }
 

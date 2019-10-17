@@ -2,10 +2,10 @@
 
 #include "App.h"
 #include "MainPage.h"
-using namespace winrt::Windows::UI;
-using namespace winrt::Windows::UI::ViewManagement;
 
 using namespace winrt;
+using namespace winrt::Windows::UI;
+using namespace winrt::Windows::UI::ViewManagement;
 using namespace Windows::ApplicationModel;
 using namespace Windows::ApplicationModel::Activation;
 using namespace Windows::ApplicationModel::Core;

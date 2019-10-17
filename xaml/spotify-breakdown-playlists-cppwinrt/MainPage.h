@@ -3,8 +3,6 @@
 #include "MainPage.g.h"
 #include "AuthenticationManager.h"
 
-using namespace Windows::UI::Xaml;
-
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
     struct MainPage : MainPageT<MainPage>
@@ -13,7 +11,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
         MainPage();
 
-        IAsyncOperation<hstring> LoginHandler(IInspectable const& sender, RoutedEventArgs const& args);
+		winrt::Windows::Foundation::IAsyncOperation<hstring> LoginHandler(IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args);
 		void loginButton_PointerEntered(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs const& e);
 		void loginButton_PointerExited(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs const& e);
 	};

@@ -3,6 +3,10 @@
 #include "Constants.h"
 #include "Utils.h"
 
+using namespace winrt;
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Security::Authentication::Web;
+
 namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
 	AuthenticationManager::AuthenticationManager(Mode mode) :
@@ -11,7 +15,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		m_redirectUri = WebAuthenticationBroker::GetCurrentApplicationCallbackUri().ToString();
 	}
 
-	IAsyncOperation<winrt::hstring> AuthenticationManager::AuthenticateAsync()
+	IAsyncOperation<hstring> AuthenticationManager::AuthenticateAsync()
 	{
 		std::vector<std::pair<std::wstring, std::wstring>> spotifyAuthParams;
 		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ClientIdParam, SpotifyQueryConstants::g_ClientIdValue));
@@ -39,7 +43,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		{
 		}
 
-		return winrt::hstring(m_accessToken);
+		return hstring(m_accessToken);
 	}
 
 	std::wstring AuthenticationManager::GetAccessToken()

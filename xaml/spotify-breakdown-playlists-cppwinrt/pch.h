@@ -6,11 +6,6 @@
 #include <restrictederrorinfo.h>
 #include <unknwn.h>
 #include <windows.h>
-#include "winrt/Microsoft.UI.Xaml.Automation.Peers.h"
-#include "winrt/Microsoft.UI.Xaml.Controls.Primitives.h"
-#include "winrt/Windows.UI.Xaml.Input.h"
-#include "winrt/Microsoft.UI.Xaml.Media.h"
-#include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.ApplicationModel.Activation.h>
@@ -28,13 +23,12 @@
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.Web.Http.h>
 #include <winrt/Windows.Web.Http.Headers.h>
+#include <winrt/Windows.UI.Xaml.Input.h>
 #include <nlohmann/json.hpp>
-
-using namespace winrt;
-using namespace winrt::Windows::Foundation;
-using namespace winrt::Windows::Foundation::Collections;
-using namespace winrt::Windows::Security::Authentication::Web;
-using json = nlohmann::json;
+#include "winrt/Microsoft.UI.Xaml.Automation.Peers.h""
+#include "winrt/Microsoft.UI.Xaml.Controls.Primitives.h"
+#include "winrt/Microsoft.UI.Xaml.Media.h"
+#include "winrt/Microsoft.UI.Xaml.XamlTypeInfo.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt
 {

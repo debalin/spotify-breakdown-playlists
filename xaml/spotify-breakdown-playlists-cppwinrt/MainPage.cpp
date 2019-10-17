@@ -4,9 +4,12 @@
 #include "MainPage.g.cpp"
 #include <Playlists.h>
 
-using namespace Windows::ApplicationModel::Core;
+using namespace winrt;
+using namespace winrt::Windows::ApplicationModel::Core;
+using namespace Windows::UI::Xaml;
 using namespace winrt::Windows::UI::Xaml::Input;
 using namespace winrt::Windows::UI::Core;
+using namespace winrt::Windows::Foundation;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
@@ -15,7 +18,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
         InitializeComponent();
     }
 
-	IAsyncOperation<winrt::hstring> MainPage::LoginHandler(
+	IAsyncOperation<hstring> MainPage::LoginHandler(
 		IInspectable const&, 
 		RoutedEventArgs const& e)
     {
@@ -23,7 +26,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		this->Frame().Navigate(
 			xaml_typename<spotify_breakdown_playlists_cppwinrt::Playlists>(), 
-			box_value(winrt::to_hstring(accessToken)));
+			box_value(to_hstring(accessToken)));
 
 		return accessToken;
     }

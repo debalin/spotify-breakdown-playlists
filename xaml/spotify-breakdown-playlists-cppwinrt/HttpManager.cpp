@@ -2,6 +2,9 @@
 #include "HttpManager.h"
 #include "Utils.h"
 
+using namespace winrt::Windows::Foundation;
+using json = nlohmann::json;
+
 namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
 	HttpManager::HttpManager(const std::wstring& accessToken) :
@@ -10,25 +13,25 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 
 	}
 
-	IAsyncOperation<winrt::hstring> HttpManager::Request(const std::wstring& uri)
+	IAsyncOperation<hstring> HttpManager::Request(const std::wstring& uri)
 	{
 		if (m_accessToken.empty())
 		{
 			throw std::exception("No access token provided.");
 		}
 
-		m_httpClient.DefaultRequestHeaders().Authorization(winrt::Windows::Web::Http::Headers::HttpCredentialsHeaderValue(
+		m_httpClient.DefaultRequestHeaders().Authorization(Windows::Web::Http::Headers::HttpCredentialsHeaderValue(
 			L"Bearer",
 			m_accessToken));
 
 		return co_await m_httpClient.GetStringAsync(Uri(uri));
 	}
 
-	IAsyncOperation<winrt::hstring> HttpManager::Request(
+	IAsyncOperation<hstring> HttpManager::Request(
 		const std::wstring& uri,
 		const std::wstring& responseParam)
 	{
-		winrt::hstring value;
+		hstring value;
 
 		const auto response = co_await Request(uri);
 		const auto responseJson = json::parse(std::wstring(response.c_str()));

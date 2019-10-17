@@ -6,8 +6,12 @@
 #include "Constants.h"
 #include "Utils.h"
 
-using namespace Windows::UI::Xaml;
+using namespace winrt;
+using namespace winrt::Windows::UI::Xaml;
 using namespace winrt::Windows::UI::Xaml::Navigation;
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Foundation::Collections;
+using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
@@ -23,9 +27,9 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		return m_playlists;
 	}
 
-	IAsyncOperation<winrt::hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
+	IAsyncOperation<hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
 	{
-		m_accessToken = unbox_value<winrt::hstring>(e.Parameter()).c_str();
+		m_accessToken = unbox_value<hstring>(e.Parameter()).c_str();
 		m_requestor = HttpManager(m_accessToken);
 		m_userId = co_await m_requestor.Request(
 			SpotifyUriConstants::g_Me, 
@@ -33,10 +37,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		co_await CollectPlaylists();
 
-		return winrt::hstring(m_accessToken);
+		return hstring(m_accessToken);
 	}
 
-	IAsyncOperation<winrt::hstring> Playlists::CollectPlaylists()
+	IAsyncOperation<hstring> Playlists::CollectPlaylists()
 	{
 		auto playlistsStr = co_await m_requestor.Request(SpotifyUriConstants::g_Playlists(m_userId));
 
@@ -44,7 +48,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		for (const auto& item : playlistsJson.at(to_mbs(SpotifyQueryConstants::g_Items)))
 		{
-			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(winrt::to_hstring(item.dump()));
+			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(to_hstring(item.dump()));
 			SpotifyPlaylists().Append(playlist);
 		}
 

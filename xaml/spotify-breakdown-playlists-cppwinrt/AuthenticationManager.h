@@ -12,7 +12,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 
 		AuthenticationManager(Mode mode);
 
-		IAsyncOperation<hstring> AuthenticateAsync();
+		winrt::Windows::Foundation::IAsyncOperation<hstring> AuthenticateAsync();
 		std::wstring GetAccessToken();
 		int SecondsLeft();
 
