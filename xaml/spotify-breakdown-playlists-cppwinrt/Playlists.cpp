@@ -19,10 +19,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	{
 		InitializeComponent();
 
-		m_playlists = single_threaded_vector<spotify_breakdown_playlists_cppwinrt::Playlist>();
+		m_playlists = single_threaded_vector<IInspectable>();
 	}
 
-	IVector<spotify_breakdown_playlists_cppwinrt::Playlist> Playlists::SpotifyPlaylists() const
+	IVector<IInspectable> Playlists::SpotifyPlaylists() const
 	{
 		return m_playlists;
 	}

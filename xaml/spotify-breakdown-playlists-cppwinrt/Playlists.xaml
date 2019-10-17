@@ -8,8 +8,13 @@
 	FontFamily="Montserrat Light"
 	mc:Ignorable="d">
 
-	<StackPanel
-		HorizontalAlignment="Center"
-		VerticalAlignment="Center"
-		Orientation="Horizontal" />
+	<ScrollViewer HorizontalScrollBarVisibility="Auto">
+		<ListBox ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate x:DataType="local:Playlist">
+					<TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ListBox>
+	</ScrollViewer>
 </Page>

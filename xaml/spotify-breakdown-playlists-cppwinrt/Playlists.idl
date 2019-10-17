@@ -6,6 +6,6 @@ namespace spotify_breakdown_playlists_cppwinrt
     runtimeclass Playlists : Windows.UI.Xaml.Controls.Page
     {
         Playlists();
-		Windows.Foundation.Collections.IVector<Playlist> SpotifyPlaylists{ get; };
+		Windows.Foundation.Collections.IVector<IInspectable> SpotifyPlaylists{ get; };
     }
 }
