@@ -11,7 +11,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	public:
 		Playlists();
 
-		Windows::Foundation::Collections::IVector<IInspectable> SpotifyPlaylists() const;
+		Windows::Foundation::Collections::IObservableVector<IInspectable> SpotifyPlaylists() const;
 		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
 
 	private:
@@ -20,7 +20,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		HttpManager m_requestor;
 
 		Windows::Foundation::IAsyncOperation<hstring> CollectPlaylists();
-		Windows::Foundation::Collections::IVector<IInspectable> m_playlists{ nullptr };
+		Windows::Foundation::Collections::IObservableVector<IInspectable> m_playlists{ nullptr };
     };
 }
 
