@@ -5,16 +5,23 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="using:spotify_breakdown_playlists_cppwinrt"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
 	FontFamily="Montserrat Light"
 	mc:Ignorable="d">
 
-	<ScrollViewer HorizontalScrollBarVisibility="Auto">
-		<ListBox ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
-			<ItemsControl.ItemTemplate>
-				<DataTemplate x:DataType="local:Playlist">
-					<TextBlock Text="{x:Bind Name, Mode=OneWay}" />
-				</DataTemplate>
-			</ItemsControl.ItemTemplate>
-		</ListBox>
-	</ScrollViewer>
+	<muxc:NavigationView
+		IsBackButtonVisible="Collapsed"
+		IsPaneOpen="False"
+		PaneTitle="Welcome">
+		<ScrollViewer HorizontalScrollBarVisibility="Auto">
+			<ListView ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate x:DataType="local:Playlist">
+						<TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ListView>
+		</ScrollViewer>
+	</muxc:NavigationView>
+
 </Page>

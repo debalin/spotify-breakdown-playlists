@@ -29,6 +29,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	IAsyncOperation<hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
 	{
+		
+
 		m_accessToken = unbox_value<hstring>(e.Parameter()).c_str();
 		m_requestor = HttpManager(m_accessToken);
 		m_userId = co_await m_requestor.Request(

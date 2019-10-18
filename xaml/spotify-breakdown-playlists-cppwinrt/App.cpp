@@ -83,11 +83,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
             // Ensure the current window is active
             Window::Current().Activate();
 
-			CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(true);
-
-			auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
-			titleBar.ButtonBackgroundColor(IReference<Color>(Colors::Transparent()));
-			titleBar.ButtonInactiveBackgroundColor(IReference<Color>(Colors::Transparent()));
+			CustomizeTitleBar();
         }
     }
     else
@@ -105,11 +101,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
             // Ensure the current window is active
             Window::Current().Activate();
 
-			CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(true);
-
-			auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
-			titleBar.ButtonBackgroundColor(IReference<Color>(Colors::Transparent()));
-			titleBar.ButtonInactiveBackgroundColor(IReference<Color>(Colors::Transparent()));
+			CustomizeTitleBar();
         }
     }
 }
@@ -134,4 +126,22 @@ void App::OnSuspending([[maybe_unused]] IInspectable const& sender, [[maybe_unus
 void App::OnNavigationFailed(IInspectable const&, NavigationFailedEventArgs const& e)
 {
     throw hresult_error(E_FAIL, hstring(L"Failed to load Page ") + e.SourcePageType().Name);
+}
+
+void winrt::spotify_breakdown_playlists_cppwinrt::implementation::App::CustomizeTitleBar()
+{
+	auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
+	/*titleBar.BackgroundColor(IReference<Color>(Colors::DarkGreen()));
+	titleBar.ButtonBackgroundColor(IReference<Color>(Colors::DarkGreen()));*/
+
+	CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(false);
+}
+
+void winrt::spotify_breakdown_playlists_cppwinrt::implementation::App::ExtendViewIntoTitleBar()
+{
+	CoreApplication::GetCurrentView().TitleBar().ExtendViewIntoTitleBar(true);
+
+	auto titleBar = ApplicationView::GetForCurrentView().TitleBar();
+	titleBar.ButtonBackgroundColor(IReference<Color>(Colors::Transparent()));
+	titleBar.ButtonInactiveBackgroundColor(IReference<Color>(Colors::Transparent()));
 }
