@@ -85,11 +85,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Assets\Montserrat-Light.ttf">
-      <Filter>Assets</Filter>
-    </Font>
-  </ItemGroup>
-  <ItemGroup>
     <Midl Include="Playlist.idl">
       <Filter>Model</Filter>
     </Midl>
