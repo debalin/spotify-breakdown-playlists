@@ -116,6 +116,7 @@
       <DependentUpon>Playlists.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
+    <ClInclude Include="SpotifyClientId.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

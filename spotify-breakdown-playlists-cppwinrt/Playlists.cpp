@@ -19,32 +19,32 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	{
 		InitializeComponent();
 
-		m_playlists = single_threaded_observable_vector<IInspectable>();
+		m_Playlists = single_threaded_observable_vector<IInspectable>();
 	}
 
 	IObservableVector<IInspectable> Playlists::SpotifyPlaylists() const
 	{
-		return m_playlists;
+		return m_Playlists;
 	}
 
 	IAsyncOperation<hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
 	{
 		
 
-		m_accessToken = unbox_value<hstring>(e.Parameter()).c_str();
-		m_requestor = HttpManager(m_accessToken);
-		m_userId = co_await m_requestor.Request(
+		m_AccessToken = unbox_value<hstring>(e.Parameter()).c_str();
+		m_Requestor = HttpManager(m_AccessToken);
+		m_UserId = co_await m_Requestor.Request(
 			SpotifyUriConstants::g_Me, 
 			SpotifyQueryConstants::g_Id);
 
 		co_await CollectPlaylists();
 
-		return hstring(m_accessToken);
+		return hstring(m_AccessToken);
 	}
 
 	IAsyncOperation<hstring> Playlists::CollectPlaylists()
 	{
-		auto playlistsStr = co_await m_requestor.Request(SpotifyUriConstants::g_Playlists(m_userId));
+		auto playlistsStr = co_await m_Requestor.Request(SpotifyUriConstants::g_Playlists(m_UserId));
 
 		json playlistsJson = json::parse(std::wstring(playlistsStr.c_str()));
 

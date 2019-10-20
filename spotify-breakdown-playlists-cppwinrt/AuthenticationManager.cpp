@@ -12,14 +12,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 	AuthenticationManager::AuthenticationManager(Mode mode) :
 		m_mode(mode)
 	{
-		m_redirectUri = WebAuthenticationBroker::GetCurrentApplicationCallbackUri().ToString();
+		m_RedirectUri = WebAuthenticationBroker::GetCurrentApplicationCallbackUri().ToString();
 	}
 
 	IAsyncOperation<hstring> AuthenticationManager::AuthenticateAsync()
 	{
 		std::vector<std::pair<std::wstring, std::wstring>> spotifyAuthParams;
 		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ClientIdParam, SpotifyQueryConstants::g_ClientIdValue));
-		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_RedirectUriParam, m_redirectUri));
+		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_RedirectUriParam, m_RedirectUri));
 		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ResponseTypeParam, SpotifyQueryConstants::g_ResponseTypeValue));
 		std::wstring authUri = Utils::FormUri(SpotifyUriConstants::g_Authorize, spotifyAuthParams);
 
@@ -31,11 +31,11 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 				WebAuthenticationOptions::None,
 				uri);
 
-			m_accessToken = Utils::GetQueryValue(
+			m_AccessToken = Utils::GetQueryValue(
 				response.ResponseData().c_str(),
 				SpotifyQueryConstants::g_AccessToken);
 
-			m_expiresIn = std::stoi(Utils::GetQueryValue(
+			m_ExpiresIn = std::stoi(Utils::GetQueryValue(
 				response.ResponseData().c_str(),
 				SpotifyQueryConstants::g_ExpiresIn));
 		}
@@ -43,12 +43,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		{
 		}
 
-		return hstring(m_accessToken);
+		return hstring(m_AccessToken);
 	}
 
 	std::wstring AuthenticationManager::GetAccessToken()
 	{
-		return m_accessToken;
+		return m_AccessToken;
 	}
 
 	int AuthenticationManager::SecondsLeft()

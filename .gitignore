@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+/spotify-breakdown-playlists-cppwinrt/SpotifyClientId.h

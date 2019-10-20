@@ -15,12 +15,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
 
 	private:
-		std::wstring m_accessToken;
-		std::wstring m_userId;
-		HttpManager m_requestor;
+		std::wstring m_AccessToken;
+		std::wstring m_UserId;
+		HttpManager m_Requestor;
 
 		Windows::Foundation::IAsyncOperation<hstring> CollectPlaylists();
-		Windows::Foundation::Collections::IObservableVector<IInspectable> m_playlists{ nullptr };
+		Windows::Foundation::Collections::IObservableVector<IInspectable> m_Playlists{ nullptr };
     };
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "SpotifyClientId.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
@@ -22,7 +23,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 	namespace SpotifyQueryConstants
 	{
 		const std::wstring g_ClientIdParam = L"client_id";
-		const std::wstring g_ClientIdValue = L"985a371b4fa24676818dc63468ca83d9";
+		const std::wstring g_ClientIdValue = spotify_app_info::client_id;
 
 		const std::wstring g_ResponseTypeParam = L"response_type";
 		const std::wstring g_ResponseTypeValue = L"token";

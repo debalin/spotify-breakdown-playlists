@@ -20,8 +20,8 @@ Windows 10
 
 ## Technologies
 
-1. `C++/WinRT`
-2. `XAML`
+1. `UWP`
+2. `C++/WinRT`
 
 ## Current status
 
