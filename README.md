@@ -25,4 +25,4 @@ Windows 10
 
 ## Current status
 
-Blank sample app with Spotify authentication. Shows a list of playlists once logged in.
+Mostly blank app with Spotify authentication. Shows a list of playlists once logged in.
