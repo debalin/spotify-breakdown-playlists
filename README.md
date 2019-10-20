@@ -25,4 +25,4 @@ Windows 10
 
 ## Current status
 
-Blank sample app with Spotify authentication. Work in progress. `console` folder is empty. `xaml` has the project that is being worked on. 
+Blank sample app with Spotify authentication. Shows a list of playlists once logged in.
