@@ -12,21 +12,43 @@
 		IsBackButtonVisible="Collapsed"
 		IsPaneOpen="False"
 		PaneTitle="">
-		<StackPanel>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
 			<TextBlock
+				Grid.Row="0"
 				Margin="10,0,0,0"
 				Style="{StaticResource SubheaderTextBlockStyle}"
 				Text="Choose a playlist." />
-			<ScrollViewer Margin="0,5,0,0" HorizontalScrollBarVisibility="Auto">
+			<ScrollViewer
+				Grid.Row="1"
+				Margin="0,5,0,0"
+				HorizontalScrollBarVisibility="Disabled"
+				HorizontalScrollMode="Enabled"
+				IsVerticalScrollChainingEnabled="True"
+				VerticalScrollBarVisibility="Visible"
+				VerticalScrollMode="Enabled"
+				ZoomMode="Disabled">
 				<ListView ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="local:Playlist">
-							<TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+							<StackPanel Orientation="Horizontal">
+								<Image
+									Width="50"
+									Height="50"
+									Source="Assets/SplashScreen.png" />
+								<TextBlock VerticalAlignment="Center" Text="{x:Bind Name, Mode=OneWay}" />
+							</StackPanel>
 						</DataTemplate>
 					</ItemsControl.ItemTemplate>
 				</ListView>
 			</ScrollViewer>
-		</StackPanel>
+		</Grid>
 	</controls:NavigationView>
 
 </Page>
