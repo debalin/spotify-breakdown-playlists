@@ -39,10 +39,13 @@
 						<DataTemplate x:DataType="local:Playlist">
 							<StackPanel Orientation="Horizontal">
 								<Image
-									Width="50"
-									Height="50"
-									Source="Assets/SplashScreen.png" />
-								<TextBlock VerticalAlignment="Center" Text="{x:Bind Name, Mode=OneWay}" />
+									Height="35"
+									Margin="0,5,0,5"
+									Source="{x:Bind Thumbnail}" />
+								<TextBlock
+									Margin="10,0,0,0"
+									VerticalAlignment="Center"
+									Text="{x:Bind Name, Mode=OneWay}" />
 							</StackPanel>
 						</DataTemplate>
 					</ItemsControl.ItemTemplate>
