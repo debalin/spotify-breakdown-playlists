@@ -12,7 +12,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		Playlists();
 
 		Windows::Foundation::Collections::IObservableVector<IInspectable> SpotifyPlaylists() const;
-		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
+		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e); 
+		void ListView_ItemClick(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Controls::ItemClickEventArgs const& e);
 
 	private:
 		std::wstring m_AccessToken;
@@ -21,7 +22,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		Windows::Foundation::IAsyncOperation<hstring> CollectPlaylists();
 		Windows::Foundation::Collections::IObservableVector<IInspectable> m_Playlists{ nullptr };
-    };
+	};
 }
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation

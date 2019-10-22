@@ -31,13 +31,15 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const std::wstring g_RedirectUriParam = L"redirect_uri";
 
 		const std::wstring g_AccessToken = L"access_token";
-
 		const std::wstring g_ExpiresIn = L"expires_in";
 
 		const std::wstring g_Id = L"id";
-
 		const std::wstring g_Items = L"items";
-
 		const std::wstring g_Name = L"name";
+		const std::wstring g_Tracks = L"tracks";
+		const std::wstring g_Total = L"total";
+		const std::wstring g_Images = L"images";
+		const std::wstring g_Url = L"url";
+		const std::wstring g_Href = L"href";
 	}
 }

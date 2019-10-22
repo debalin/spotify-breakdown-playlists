@@ -8,6 +8,7 @@
 
 using namespace winrt;
 using namespace winrt::Windows::UI::Xaml;
+using namespace winrt::Windows::UI::Xaml::Controls;
 using namespace winrt::Windows::UI::Xaml::Navigation;
 using namespace winrt::Windows::Foundation;
 using namespace winrt::Windows::Foundation::Collections;
@@ -29,8 +30,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	IAsyncOperation<hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
 	{
-		
-
 		m_AccessToken = unbox_value<hstring>(e.Parameter()).c_str();
 		m_Requestor = HttpManager(m_AccessToken);
 		m_UserId = co_await m_Requestor.Request(
@@ -55,5 +54,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		}
 
 		return L"";
+	}
+
+	void Playlists::ListView_ItemClick(
+		IInspectable const& sender,
+		ItemClickEventArgs const& e)
+	{
+		auto clickedPlaylist = e.ClickedItem().as<Playlist>();
 	}
 }

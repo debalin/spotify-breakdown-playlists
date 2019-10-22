@@ -13,29 +13,32 @@ using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-	Playlist::Playlist(const winrt::hstring& itemJson)
+	Playlist::Playlist(const hstring& itemJson)
 	{
 		json j = json::parse(to_mbs(itemJson.c_str()));
-		m_Name = to_wcs(j.at(to_mbs(SpotifyQueryConstants::g_Name)).get<std::string>());
-		m_Id = to_wcs(j.at(to_mbs(SpotifyQueryConstants::g_Id)).get<std::string>());
+		m_Name = j.at(to_mbs(SpotifyQueryConstants::g_Name)).get<std::wstring>();
+		m_Id = j.at(to_mbs(SpotifyQueryConstants::g_Id)).get<std::wstring>();
+		m_SongCount = j.at(to_mbs(SpotifyQueryConstants::g_Tracks)).at(to_mbs(SpotifyQueryConstants::g_Total)).get<unsigned int>();
+		m_TracksUri = j.at(to_mbs(SpotifyQueryConstants::g_Tracks)).at(to_mbs(SpotifyQueryConstants::g_Href)).get<std::wstring>();
 
-		std::wstring imageUri = j.at("images").size() > 0 ?
-			to_wcs(j.at("images")[0].at("url").get<std::string>()) :
+		std::string imagesConstant = to_mbs(SpotifyQueryConstants::g_Images);
+		std::wstring imageUri = j.at(imagesConstant).size() > 0 ?
+			to_wcs(j.at(imagesConstant)[0].at(to_mbs(SpotifyQueryConstants::g_Url)).get<std::string>()) :
 			L"";
-
 		m_Image = BitmapImage(Uri(imageUri));
 	}
 
-	winrt::hstring Playlist::Name()
+	hstring Playlist::Name()
 	{
-		return winrt::hstring(m_Name);
+		return hstring(m_Name);
 	}
 
-	void Playlist::Name(const winrt::hstring& name)
+	void Playlist::Name(const hstring& name)
 	{
 		m_Name = name.c_str();
 	}
-	Windows::UI::Xaml::Media::Imaging::BitmapImage Playlist::Thumbnail()
+
+	BitmapImage Playlist::Thumbnail()
 	{
 		return m_Image;
 	}
@@ -45,12 +48,22 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		m_Image = image;
 	}
 
-	winrt::event_token Playlist::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
+	hstring Playlist::SongCount()
+	{
+		return to_hstring(m_SongCount) + L" songs";
+	}
+
+	void Playlist::SongCount(const hstring& songCount)
+	{
+		m_SongCount = static_cast<unsigned int>(std::stoi(songCount.c_str()));
+	}
+
+	event_token Playlist::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
 	{
 		return m_propertyChanged.add(value);
 	}
 
-	void Playlist::PropertyChanged(winrt::event_token const& token)
+	void Playlist::PropertyChanged(event_token const& token)
 	{
 		m_propertyChanged.remove(token);
 	}

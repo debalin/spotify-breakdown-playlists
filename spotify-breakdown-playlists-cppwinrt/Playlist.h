@@ -9,12 +9,15 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
     {
 	public:
         Playlist() = default;
-		Playlist(const winrt::hstring& itemJson);
+		Playlist(const hstring& itemJson);
 
 		hstring Name();
 		void Name(const hstring&);
 		Windows::UI::Xaml::Media::Imaging::BitmapImage Thumbnail();
 		void Thumbnail(const Windows::UI::Xaml::Media::Imaging::BitmapImage&);
+		hstring SongCount();
+		void SongCount(const hstring&);
+
 		event_token PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value);
 		void PropertyChanged(event_token const& token);
 
@@ -24,8 +27,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		std::wstring m_Name;
 		std::wstring m_Id;
 		Windows::UI::Xaml::Media::Imaging::BitmapImage m_Image;
-
-		HttpManager m_HttpClient;
+		unsigned int m_SongCount;
+		std::wstring m_TracksUri;
     };
 }
 

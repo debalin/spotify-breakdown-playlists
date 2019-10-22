@@ -12,7 +12,7 @@
 		IsBackButtonVisible="Collapsed"
 		IsPaneOpen="False"
 		PaneTitle="">
-		<Grid>
+		<Grid Name="MainGrid">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
@@ -34,19 +34,45 @@
 				VerticalScrollBarVisibility="Visible"
 				VerticalScrollMode="Enabled"
 				ZoomMode="Disabled">
-				<ListView ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
+				<ListView
+					IsItemClickEnabled="True"
+					ItemClick="ListView_ItemClick"
+					ItemsSource="{x:Bind SpotifyPlaylists, Mode=OneWay}">
+					<ListView.ItemContainerStyle>
+						<Style TargetType="ListViewItem">
+							<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+						</Style>
+					</ListView.ItemContainerStyle>
 					<ItemsControl.ItemTemplate>
 						<DataTemplate x:DataType="local:Playlist">
-							<StackPanel Orientation="Horizontal">
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="50" />
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
 								<Image
-									Height="35"
-									Margin="0,5,0,5"
+									Grid.Column="0"
+									Height="30"
+									Margin="5,5,0,5"
 									Source="{x:Bind Thumbnail}" />
 								<TextBlock
+									Grid.Column="1"
 									Margin="10,0,0,0"
+									HorizontalAlignment="Left"
 									VerticalAlignment="Center"
 									Text="{x:Bind Name, Mode=OneWay}" />
-							</StackPanel>
+								<TextBlock
+									Grid.Column="2"
+									Margin="0,0,15,0"
+									HorizontalAlignment="Right"
+									VerticalAlignment="Center"
+									FontWeight="Bold"
+									Text="{x:Bind SongCount, Mode=OneWay}" />
+							</Grid>
 						</DataTemplate>
 					</ItemsControl.ItemTemplate>
 				</ListView>
