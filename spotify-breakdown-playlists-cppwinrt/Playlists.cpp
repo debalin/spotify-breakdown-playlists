@@ -60,6 +60,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		IInspectable const& sender,
 		ItemClickEventArgs const& e)
 	{
-		auto clickedPlaylist = e.ClickedItem().as<Playlist>();
+		this->Frame().Navigate(
+			xaml_typename<spotify_breakdown_playlists_cppwinrt::Tracks>(),
+			Utils::WrapNavigationArgs({ e.ClickedItem(), box_value(m_AccessToken) }));
 	}
 }

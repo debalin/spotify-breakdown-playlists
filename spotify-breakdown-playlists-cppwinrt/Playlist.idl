@@ -5,7 +5,8 @@ namespace spotify_breakdown_playlists_cppwinrt
         Playlist();
 		Playlist(String itemJson);
 		String Name{ get; };
-		Windows.UI.Xaml.Media.Imaging.BitmapImage Thumbnail{ get; };
+		Windows.UI.Xaml.Media.Imaging.BitmapImage Thumbnail{ get; set; };
 		String SongCount{ get; };
+		String TracksUri{ get; };
     }
 }

@@ -1,0 +1,11 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+    [bindable]
+    [default_interface]
+    runtimeclass Track 
+    {
+        Track();
+		Track(String itemJson);
+		String Name{ get; };
+    }
+}

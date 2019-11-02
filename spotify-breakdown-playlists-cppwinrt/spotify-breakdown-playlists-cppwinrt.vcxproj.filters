@@ -75,6 +75,9 @@
     <Page Include="Playlists.xaml">
       <Filter>Xaml</Filter>
     </Page>
+    <Page Include="Tracks.xaml">
+      <Filter>Xaml</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Spotify_Logo_RGB_Green.png">
@@ -86,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Playlist.idl">
+      <Filter>Model</Filter>
+    </Midl>
+    <Midl Include="Track.idl">
       <Filter>Model</Filter>
     </Midl>
   </ItemGroup>

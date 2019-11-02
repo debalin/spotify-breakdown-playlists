@@ -58,6 +58,16 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		m_SongCount = static_cast<unsigned int>(std::stoi(songCount.c_str()));
 	}
 
+	hstring Playlist::TracksUri()
+	{
+		return hstring(m_TracksUri);
+	}
+
+	void Playlist::TracksUri(const hstring& tracksUri)
+	{
+		m_TracksUri = tracksUri.c_str();
+	}
+
 	event_token Playlist::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
 	{
 		return m_propertyChanged.add(value);

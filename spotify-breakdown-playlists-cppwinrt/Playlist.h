@@ -17,6 +17,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		void Thumbnail(const Windows::UI::Xaml::Media::Imaging::BitmapImage&);
 		hstring SongCount();
 		void SongCount(const hstring&);
+		hstring TracksUri();
+		void TracksUri(const hstring&);
 
 		event_token PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value);
 		void PropertyChanged(event_token const& token);

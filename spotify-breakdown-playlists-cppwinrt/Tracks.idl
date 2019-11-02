@@ -1,0 +1,10 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+    [default_interface]
+    runtimeclass Tracks : Windows.UI.Xaml.Controls.Page
+    {
+        Tracks();
+
+		Windows.UI.Xaml.Media.Imaging.BitmapImage CoverImage{ get; };
+    }
+}
