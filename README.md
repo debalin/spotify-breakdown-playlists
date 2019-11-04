@@ -23,6 +23,15 @@ Windows 10
 1. `UWP`
 2. `C++/WinRT`
 
-## Current status
+## Building
 
-Mostly blank app with Spotify authentication. Shows a list of playlists once logged in.
+You would need the following things to build the solution:
+
+1. Visual Studio 2019 with the UWP workload (make sure to check the C++ (v14x) Universal Windows Platform tools option)
+2. C++/WinRT VSIX (https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)
+3. `vcpkg` (https://github.com/microsoft/vcpkg#quick-start)
+4. `nlohmann-json` via `vcpkg` (install the x64-uwp triplet):
+
+    ```ps1
+	.\vcpkg.exe install nlohmann-json:x64-uwp
+	```
