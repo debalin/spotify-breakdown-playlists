@@ -27,7 +27,7 @@ Windows 10
 
 You would need the following things to build the solution and view the application:
 
-1. Visual Studio 2019 with the UWP workload (make sure to check the C++ (v14x) Universal Windows Platform tools option)
+1. Visual Studio 2019 with the UWP workload (make sure to check the C++ (v14x) Universal Windows Platform tools option) (https://visualstudio.microsoft.com/vs/)
 2. C++/WinRT VSIX (https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)
 3. `vcpkg` (https://github.com/microsoft/vcpkg#quick-start)
 4. `x64-uwp` triplet of `nlohmann-json` via `vcpkg` (https://github.com/nlohmann/json):
