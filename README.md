@@ -25,7 +25,7 @@ Windows 10
 
 ## Building
 
-You would need the following things to build the solution:
+You would need the following things to build the solution and view the application:
 
 1. Visual Studio 2019 with the UWP workload (make sure to check the C++ (v14x) Universal Windows Platform tools option)
 2. C++/WinRT VSIX (https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt#visual-studio-support-for-cwinrt-xaml-the-vsix-extension-and-the-nuget-package)
