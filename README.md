@@ -35,3 +35,4 @@ You would need the following things to build the solution and view the applicati
     ```ps1
 	.\vcpkg.exe install nlohmann-json:x64-uwp
 	```
+5. Clone the solution and build.
