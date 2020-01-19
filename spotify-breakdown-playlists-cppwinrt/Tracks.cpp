@@ -33,9 +33,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		m_Playlist = e.Parameter().as<IVector<IInspectable>>().GetAt(0).as<Playlist>();
 		m_Requestor = HttpManager(unbox_value<hstring>(e.Parameter().as<IVector<IInspectable>>().GetAt(1)).c_str());
 
-		auto tracksJson = co_await m_Requestor.Request(
-			m_Playlist.TracksUri().c_str());
+		auto tracksJson = co_await m_Requestor.Request(m_Playlist.TracksUri().c_str());
 
-		return L"";
+		co_return L"";
 	}
 }
