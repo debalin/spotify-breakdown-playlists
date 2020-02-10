@@ -47,7 +47,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		json playlistsJson = json::parse(std::wstring(playlistsStr.c_str()));
 
-		for (const auto& item : playlistsJson.at(to_mbs(SpotifyQueryConstants::g_Items)))
+		for (const auto& item : playlistsJson.at(to_string(SpotifyQueryConstants::g_Items)))
 		{
 			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(to_hstring(item.dump()));
 			SpotifyPlaylists().Append(playlist);

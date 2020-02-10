@@ -53,7 +53,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const auto response = co_await Request(uri);
 		const auto responseJson = json::parse(std::wstring(response.c_str()));
 
-		value = responseJson.at(to_mbs(responseParam)).get<std::wstring>();
+		value = responseJson.at(to_string(responseParam)).get<std::wstring>();
 		return value;
 	}
 }

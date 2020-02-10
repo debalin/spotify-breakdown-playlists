@@ -73,6 +73,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		return std::wstring(&output[0], output.size() - 1);
 	}
 
+	// DEPRECATED: use winrt::to_string instead.
 	inline std::string to_mbs(const std::wstring& input)
 	{
 		if (input.empty())
@@ -119,7 +120,7 @@ namespace nlohmann {
 	template <>
 	struct adl_serializer<std::wstring> {
 		static void to_json(json& j, const std::wstring& str) {
-			j = winrt::spotify_breakdown_playlists_cppwinrt::to_mbs(str);
+			j = winrt::to_string(str);
 		}
 
 		static void from_json(const json& j, std::wstring& str) {

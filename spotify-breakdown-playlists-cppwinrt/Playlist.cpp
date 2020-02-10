@@ -15,15 +15,15 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
 	Playlist::Playlist(const hstring& itemJson)
 	{
-		json j = json::parse(to_mbs(itemJson.c_str()));
-		m_Name = j.at(to_mbs(SpotifyQueryConstants::g_Name)).get<std::wstring>();
-		m_Id = j.at(to_mbs(SpotifyQueryConstants::g_Id)).get<std::wstring>();
-		m_SongCount = j.at(to_mbs(SpotifyQueryConstants::g_Tracks)).at(to_mbs(SpotifyQueryConstants::g_Total)).get<unsigned int>();
-		m_TracksUri = j.at(to_mbs(SpotifyQueryConstants::g_Tracks)).at(to_mbs(SpotifyQueryConstants::g_Href)).get<std::wstring>();
+		json j = json::parse(std::wstring(itemJson.c_str()));
+		m_Name = j.at(to_string(SpotifyQueryConstants::g_Name)).get<std::wstring>();
+		m_Id = j.at(to_string(SpotifyQueryConstants::g_Id)).get<std::wstring>();
+		m_SongCount = j.at(to_string(SpotifyQueryConstants::g_Tracks)).at(to_string(SpotifyQueryConstants::g_Total)).get<unsigned int>();
+		m_TracksUri = j.at(to_string(SpotifyQueryConstants::g_Tracks)).at(to_string(SpotifyQueryConstants::g_Href)).get<std::wstring>();
 
-		std::string imagesConstant = to_mbs(SpotifyQueryConstants::g_Images);
+		std::string imagesConstant = to_string(SpotifyQueryConstants::g_Images);
 		std::wstring imageUri = j.at(imagesConstant).size() > 0 ?
-			to_wcs(j.at(imagesConstant)[0].at(to_mbs(SpotifyQueryConstants::g_Url)).get<std::string>()) :
+			to_wcs(j.at(imagesConstant)[0].at(to_string(SpotifyQueryConstants::g_Url)).get<std::string>()) :
 			L"";
 		m_Image = BitmapImage(Uri(imageUri));
 	}
