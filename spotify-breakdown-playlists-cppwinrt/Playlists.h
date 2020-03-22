@@ -13,7 +13,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		Windows::Foundation::Collections::IObservableVector<IInspectable> SpotifyPlaylists() const;
 		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e); 
-		void ListView_ItemClick(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::Controls::ItemClickEventArgs const& e);
+		void ListView_ItemClick(const Windows::Foundation::IInspectable& sender, const Windows::UI::Xaml::Controls::ItemClickEventArgs& e);
 
 	private:
 		std::wstring m_AccessToken;

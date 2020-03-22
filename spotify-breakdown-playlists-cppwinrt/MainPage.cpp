@@ -19,8 +19,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
     }
 
 	IAsyncOperation<hstring> MainPage::LoginHandler(
-		IInspectable const&, 
-		RoutedEventArgs const& e)
+		const IInspectable&,
+		const RoutedEventArgs& e)
     {
 		auto accessToken = co_await m_authManager.AuthenticateAsync();
 
@@ -28,19 +28,19 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 			xaml_typename<spotify_breakdown_playlists_cppwinrt::Playlists>(), 
 			box_value(to_hstring(accessToken)));
 
-		return accessToken;
+		co_return accessToken;
     }
 
 	void MainPage::loginButton_PointerEntered(
-		IInspectable const&, 
-		PointerRoutedEventArgs const&)
+		const IInspectable&,
+		const PointerRoutedEventArgs&)
 	{
 		Window::Current().CoreWindow().PointerCursor(CoreCursor(CoreCursorType::Hand, 0));
 	}
 
 	void MainPage::loginButton_PointerExited(
-		IInspectable const&,
-		PointerRoutedEventArgs const&)
+		const IInspectable&,
+		const PointerRoutedEventArgs&)
 	{
 		Window::Current().CoreWindow().PointerCursor(CoreCursor(CoreCursorType::Arrow, 0));
 	}

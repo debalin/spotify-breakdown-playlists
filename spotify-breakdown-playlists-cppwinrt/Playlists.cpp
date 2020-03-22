@@ -38,7 +38,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		co_await CollectPlaylists();
 
-		return hstring(m_AccessToken);
+		co_return hstring(m_AccessToken);
 	}
 
 	IAsyncOperation<hstring> Playlists::CollectPlaylists()
@@ -53,12 +53,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 			SpotifyPlaylists().Append(playlist);
 		}
 
-		return L"";
+		co_return L"";
 	}
 
 	void Playlists::ListView_ItemClick(
-		IInspectable const& sender,
-		ItemClickEventArgs const& e)
+		const IInspectable&,
+		const ItemClickEventArgs& e)
 	{
 		this->Frame().Navigate(
 			xaml_typename<spotify_breakdown_playlists_cppwinrt::Tracks>(),

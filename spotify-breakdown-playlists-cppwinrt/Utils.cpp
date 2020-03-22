@@ -42,7 +42,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		return value;
 	}
 	
-	IVector<IInspectable> Utils::WrapNavigationArgs(std::initializer_list<Windows::Foundation::IInspectable> args)
+	IVector<IInspectable> Utils::WrapNavigationArgs(const std::initializer_list<Windows::Foundation::IInspectable>& args)
 	{
 		IVector<IInspectable> v = single_threaded_vector<IInspectable>();
 		
