@@ -43,7 +43,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		{
 		}
 
-		return hstring(m_AccessToken);
+		co_return hstring(m_AccessToken);
 	}
 
 	std::wstring AuthenticationManager::GetAccessToken()

@@ -43,7 +43,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	IAsyncOperation<hstring> Playlists::CollectPlaylists()
 	{
-		auto playlistsStr = co_await m_Requestor.Request(SpotifyUriConstants::g_Playlists(m_UserId));
+		auto playlistsStr = co_await m_Requestor.Request(SpotifyUriConstants::g_MyPlaylists);
 
 		json playlistsJson = json::parse(std::wstring(playlistsStr.c_str()));
 

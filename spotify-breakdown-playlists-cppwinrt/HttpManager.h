@@ -9,7 +9,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		HttpManager(const std::wstring& accessToken);
 
 		Windows::Foundation::IAsyncOperation<hstring> Request(const std::wstring& uri);
-		Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Media::Imaging::BitmapImage> RequestImage(const std::wstring& uri);
 
 		// Assumption: response is in JSON.
 		Windows::Foundation::IAsyncOperation<hstring> Request(const std::wstring& uri, const std::wstring& responseParam);

@@ -10,14 +10,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const std::wstring g_Question = L"?";
 		const std::wstring g_Equals = L"=";
 		const std::wstring g_Ampersand = L"&";
-	}
-
-	namespace SpotifyUriConstants
-	{
-		const std::wstring g_Authorize = L"https://accounts.spotify.com/authorize";
-		const std::wstring g_Me = L"https://api.spotify.com/v1/me";
-
-		std::wstring g_Playlists(const std::wstring& userId);
+		const std::wstring g_Backslash = L"/";
 	}
 
 	namespace SpotifyQueryConstants
@@ -41,5 +34,15 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const std::wstring g_Images = L"images";
 		const std::wstring g_Url = L"url";
 		const std::wstring g_Href = L"href";
+		const std::wstring g_Playlists = L"playlists";
+	}
+
+	namespace SpotifyUriConstants
+	{
+		const std::wstring g_Authorize = L"https://accounts.spotify.com/authorize";
+		const std::wstring g_Me = L"https://api.spotify.com/v1/me";
+		const std::wstring g_MyPlaylists = g_Me + HttpConstants::g_Backslash + SpotifyQueryConstants::g_Playlists;
+
+		std::wstring g_Playlists(const std::wstring& userId);
 	}
 }

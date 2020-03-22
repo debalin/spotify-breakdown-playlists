@@ -30,20 +30,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		return co_await m_HttpClient.GetStringAsync(Uri(uri));
 	}
 
-	IAsyncOperation<Windows::UI::Xaml::Media::Imaging::BitmapImage> HttpManager::RequestImage(const std::wstring& uri)
-	{
-		if (m_AccessToken.empty())
-		{
-			throw std::exception("No access token provided.");
-		}
-
-		BitmapImage image;
-
-		auto response = co_await m_HttpClient.GetInputStreamAsync(Uri(uri));
-
-		return image;
-	}
-
 	IAsyncOperation<hstring> HttpManager::Request(
 		const std::wstring& uri,
 		const std::wstring& responseParam)
@@ -54,6 +40,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const auto responseJson = json::parse(std::wstring(response.c_str()));
 
 		value = responseJson.at(to_string(responseParam)).get<std::wstring>();
-		return value;
+		co_return value;
 	}
 }
