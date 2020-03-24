@@ -15,7 +15,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
 	Tracks::Tracks()
 	{
-
 	}
 
 	BitmapImage Tracks::CoverImage()

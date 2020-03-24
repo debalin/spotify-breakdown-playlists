@@ -33,7 +33,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		m_AccessToken = unbox_value<hstring>(e.Parameter()).c_str();
 		m_Requestor = HttpManager(m_AccessToken);
 		m_UserId = co_await m_Requestor.Request(
-			SpotifyUriConstants::g_Me, 
+			SpotifyUriConstants::g_Me,
 			SpotifyQueryConstants::g_Id);
 
 		co_await CollectPlaylists();
