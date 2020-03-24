@@ -1,17 +1,17 @@
 ﻿#pragma once
 
-#include "Playlists.g.h"
+#include "Sources.g.h"
 #include "HttpManager.h"
 #include "Playlist.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-    struct Playlists : PlaylistsT<Playlists>
+    struct Sources : SourcesT<Sources>
     {
 	public:
-		Playlists();
+		Sources();
 
-		Windows::Foundation::Collections::IObservableVector<IInspectable> SpotifyPlaylists() const;
+		Windows::Foundation::Collections::IObservableVector<IInspectable> SpotifySources() const;
 		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e); 
 		void ListView_ItemClick(const Windows::Foundation::IInspectable& sender, const Windows::UI::Xaml::Controls::ItemClickEventArgs& e);
 
@@ -20,14 +20,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		std::wstring m_UserId;
 		HttpManager m_Requestor;
 
-		Windows::Foundation::IAsyncOperation<hstring> CollectPlaylists();
-		Windows::Foundation::Collections::IObservableVector<IInspectable> m_Playlists{ nullptr };
+		Windows::Foundation::IAsyncOperation<hstring> CollectSources();
+		Windows::Foundation::Collections::IObservableVector<IInspectable> m_Sources{ nullptr };
 	};
 }
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation
 {
-    struct Playlists : PlaylistsT<Playlists, implementation::Playlists>
+    struct Sources : SourcesT<Sources, implementation::Sources>
     {
     };
 }

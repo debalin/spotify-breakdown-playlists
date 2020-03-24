@@ -2,7 +2,7 @@
 
 #include "LoginPage.h"
 #include "LoginPage.g.cpp"
-#include <Playlists.h>
+#include <Sources.h>
 
 using namespace winrt;
 using namespace winrt::Windows::ApplicationModel::Core;
@@ -25,7 +25,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		auto accessToken = co_await m_authManager.AuthenticateAsync();
 
 		this->Frame().Navigate(
-			xaml_typename<spotify_breakdown_playlists_cppwinrt::Playlists>(), 
+			xaml_typename<spotify_breakdown_playlists_cppwinrt::Sources>(), 
 			box_value(to_hstring(accessToken)));
 
 		co_return accessToken;

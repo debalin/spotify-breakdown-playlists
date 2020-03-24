@@ -112,8 +112,8 @@
       <DependentUpon>Playlist.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="Playlists.h">
-      <DependentUpon>Playlists.xaml</DependentUpon>
+    <ClInclude Include="Sources.h">
+      <DependentUpon>Sources.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="SpotifyClientId.h" />
@@ -134,7 +134,7 @@
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Playlists.xaml">
+    <Page Include="Sources.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Tracks.xaml">
@@ -164,8 +164,8 @@
       <DependentUpon>Playlist.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
-    <ClCompile Include="Playlists.cpp">
-      <DependentUpon>Playlists.xaml</DependentUpon>
+    <ClCompile Include="Sources.cpp">
+      <DependentUpon>Sources.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Track.cpp">
@@ -188,8 +188,8 @@
     <Midl Include="Playlist.idl">
       <SubType>Designer</SubType>
     </Midl>
-    <Midl Include="Playlists.idl">
-      <DependentUpon>Playlists.xaml</DependentUpon>
+    <Midl Include="Sources.idl">
+      <DependentUpon>Sources.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
     <Midl Include="Track.idl">

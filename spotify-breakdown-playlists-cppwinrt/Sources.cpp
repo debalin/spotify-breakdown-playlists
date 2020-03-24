@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
-#include "Playlists.h"
-#if __has_include("Playlists.g.cpp")
-#include "Playlists.g.cpp"
+#include "Sources.h"
+#if __has_include("Sources.g.cpp")
+#include "Sources.g.cpp"
 #endif
 #include "Constants.h"
 #include "Utils.h"
@@ -16,19 +16,19 @@ using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-	Playlists::Playlists()
+	Sources::Sources()
 	{
 		InitializeComponent();
 
-		m_Playlists = single_threaded_observable_vector<IInspectable>();
+		m_Sources = single_threaded_observable_vector<IInspectable>();
 	}
 
-	IObservableVector<IInspectable> Playlists::SpotifyPlaylists() const
+	IObservableVector<IInspectable> Sources::SpotifySources() const
 	{
-		return m_Playlists;
+		return m_Sources;
 	}
 
-	IAsyncOperation<hstring> Playlists::OnNavigatedTo(NavigationEventArgs e)
+	IAsyncOperation<hstring> Sources::OnNavigatedTo(NavigationEventArgs e)
 	{
 		m_AccessToken = unbox_value<hstring>(e.Parameter()).c_str();
 		m_Requestor = HttpManager(m_AccessToken);
@@ -36,12 +36,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 			SpotifyUriConstants::g_Me,
 			SpotifyQueryConstants::g_Id);
 
-		co_await CollectPlaylists();
+		co_await CollectSources();
 
 		co_return hstring(m_AccessToken);
 	}
 
-	IAsyncOperation<hstring> Playlists::CollectPlaylists()
+	IAsyncOperation<hstring> Sources::CollectSources()
 	{
 		auto playlistsStr = co_await m_Requestor.Request(SpotifyUriConstants::g_MyPlaylists);
 
@@ -50,13 +50,13 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		for (const auto& item : playlistsJson.at(to_string(SpotifyQueryConstants::g_Items)))
 		{
 			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(to_hstring(item.dump()));
-			SpotifyPlaylists().Append(playlist);
+			SpotifySources().Append(playlist);
 		}
 
 		co_return L"";
 	}
 
-	void Playlists::ListView_ItemClick(
+	void Sources::ListView_ItemClick(
 		const IInspectable&,
 		const ItemClickEventArgs& e)
 	{
