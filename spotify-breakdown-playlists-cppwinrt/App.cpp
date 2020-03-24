@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 
 #include "App.h"
-#include "MainPage.h"
+#include "LoginPage.h"
 
 using namespace winrt;
 using namespace winrt::Windows::UI;
@@ -74,7 +74,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::MainPage>(), box_value(e.Arguments()));
+                rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::LoginPage>(), box_value(e.Arguments()));
             }
             
 			// Place the frame in the current Window
@@ -95,7 +95,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::MainPage>(), box_value(e.Arguments()));
+                rootFrame.Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::LoginPage>(), box_value(e.Arguments()));
             }
 
             // Ensure the current window is active

@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
 
-#include "MainPage.h"
-#include "MainPage.g.cpp"
+#include "LoginPage.h"
+#include "LoginPage.g.cpp"
 #include <Playlists.h>
 
 using namespace winrt;
@@ -13,12 +13,12 @@ using namespace winrt::Windows::Foundation;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-    MainPage::MainPage()
+    LoginPage::LoginPage()
     {
         InitializeComponent();
     }
 
-	IAsyncOperation<hstring> MainPage::LoginHandler(
+	IAsyncOperation<hstring> LoginPage::LoginHandler(
 		const IInspectable&,
 		const RoutedEventArgs& e)
     {
@@ -31,14 +31,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		co_return accessToken;
     }
 
-	void MainPage::loginButton_PointerEntered(
+	void LoginPage::loginButton_PointerEntered(
 		const IInspectable&,
 		const PointerRoutedEventArgs&)
 	{
 		Window::Current().CoreWindow().PointerCursor(CoreCursor(CoreCursorType::Hand, 0));
 	}
 
-	void MainPage::loginButton_PointerExited(
+	void LoginPage::loginButton_PointerExited(
 		const IInspectable&,
 		const PointerRoutedEventArgs&)
 	{

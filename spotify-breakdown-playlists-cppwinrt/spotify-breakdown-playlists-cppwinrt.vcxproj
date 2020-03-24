@@ -105,8 +105,8 @@
     <ClInclude Include="App.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="MainPage.h">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <ClInclude Include="LoginPage.h">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="Playlist.h">
       <DependentUpon>Playlist.idl</DependentUpon>
@@ -131,7 +131,7 @@
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Playlists.xaml">
@@ -156,8 +156,8 @@
     <ClCompile Include="App.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="MainPage.cpp">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <ClCompile Include="LoginPage.cpp">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Playlist.cpp">
@@ -182,8 +182,8 @@
     <Midl Include="App.idl">
       <DependentUpon>App.xaml</DependentUpon>
     </Midl>
-    <Midl Include="MainPage.idl">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Midl Include="LoginPage.idl">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Midl>
     <Midl Include="Playlist.idl">
       <SubType>Designer</SubType>

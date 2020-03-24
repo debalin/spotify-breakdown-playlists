@@ -68,14 +68,14 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainPage.xaml">
-      <Filter>Xaml</Filter>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)DensityStyles\Compact.xaml" />
     <Page Include="Playlists.xaml">
       <Filter>Xaml</Filter>
     </Page>
     <Page Include="Tracks.xaml">
+      <Filter>Xaml</Filter>
+    </Page>
+    <Page Include="LoginPage.xaml">
       <Filter>Xaml</Filter>
     </Page>
   </ItemGroup>
