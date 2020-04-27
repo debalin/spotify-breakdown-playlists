@@ -43,6 +43,6 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		const std::wstring g_Me = L"https://api.spotify.com/v1/me";
 		const std::wstring g_MyPlaylists = g_Me + HttpConstants::g_Backslash + SpotifyQueryConstants::g_Playlists;
 
-		std::wstring g_Playlists(const std::wstring& userId);
+		std::wstring g_Sources(const std::wstring& userId);
 	}
 }

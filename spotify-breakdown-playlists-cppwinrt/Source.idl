@@ -1,9 +1,9 @@
 namespace spotify_breakdown_playlists_cppwinrt
 {
-	runtimeclass Playlist : Windows.UI.Xaml.Data.INotifyPropertyChanged
+	runtimeclass Source : Windows.UI.Xaml.Data.INotifyPropertyChanged
     {
-        Playlist();
-		Playlist(String itemJson);
+        Source();
+		Source(String itemJson);
 		String Name{ get; };
 		Windows.UI.Xaml.Media.Imaging.BitmapImage Thumbnail{ get; set; };
 		String SongCount{ get; };

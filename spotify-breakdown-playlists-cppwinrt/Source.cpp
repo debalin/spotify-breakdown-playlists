@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
-#include "Playlist.h"
-#if __has_include("Playlist.g.cpp")
-#include "Playlist.g.cpp"
+#include "Source.h"
+#if __has_include("Source.g.cpp")
+#include "Source.g.cpp"
 #endif
 #include "Constants.h"
 
@@ -13,7 +13,7 @@ using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-	Playlist::Playlist(const hstring& itemJson)
+	Source::Source(const hstring& itemJson)
 	{
 		json j = json::parse(std::wstring(itemJson.c_str()));
 		m_Name = j.at(to_string(SpotifyQueryConstants::g_Name)).get<std::wstring>();
@@ -28,52 +28,52 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		m_Image = BitmapImage(Uri(imageUri));
 	}
 
-	hstring Playlist::Name()
+	hstring Source::Name()
 	{
 		return hstring(m_Name);
 	}
 
-	void Playlist::Name(const hstring& name)
+	void Source::Name(const hstring& name)
 	{
 		m_Name = name.c_str();
 	}
 
-	BitmapImage Playlist::Thumbnail()
+	BitmapImage Source::Thumbnail()
 	{
 		return m_Image;
 	}
 
-	void Playlist::Thumbnail(const Windows::UI::Xaml::Media::Imaging::BitmapImage& image)
+	void Source::Thumbnail(const Windows::UI::Xaml::Media::Imaging::BitmapImage& image)
 	{
 		m_Image = image;
 	}
 
-	hstring Playlist::SongCount()
+	hstring Source::SongCount()
 	{
 		return to_hstring(m_SongCount) + L" songs";
 	}
 
-	void Playlist::SongCount(const hstring& songCount)
+	void Source::SongCount(const hstring& songCount)
 	{
 		m_SongCount = static_cast<unsigned int>(std::stoi(songCount.c_str()));
 	}
 
-	hstring Playlist::TracksUri()
+	hstring Source::TracksUri()
 	{
 		return hstring(m_TracksUri);
 	}
 
-	void Playlist::TracksUri(const hstring& tracksUri)
+	void Source::TracksUri(const hstring& tracksUri)
 	{
 		m_TracksUri = tracksUri.c_str();
 	}
 
-	event_token Playlist::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
+	event_token Source::PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& value)
 	{
 		return m_propertyChanged.add(value);
 	}
 
-	void Playlist::PropertyChanged(event_token const& token)
+	void Source::PropertyChanged(event_token const& token)
 	{
 		m_propertyChanged.remove(token);
 	}

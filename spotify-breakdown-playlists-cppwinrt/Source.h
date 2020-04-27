@@ -1,15 +1,15 @@
 ﻿#pragma once
 
-#include "Playlist.g.h"
+#include "Source.g.h"
 #include "HttpManager.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-    struct Playlist : PlaylistT<Playlist>
+    struct Source : SourceT<Source>
     {
 	public:
-        Playlist() = default;
-		Playlist(const hstring& itemJson);
+        Source() = default;
+		Source(const hstring& itemJson);
 
 		hstring Name();
 		void Name(const hstring&);
@@ -36,7 +36,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation
 {
-    struct Playlist : PlaylistT<Playlist, implementation::Playlist>
+    struct Source : SourceT<Source, implementation::Source>
     {
     };
 }

@@ -44,7 +44,7 @@
 						</Style>
 					</ListView.ItemContainerStyle>
 					<ItemsControl.ItemTemplate>
-						<DataTemplate x:DataType="local:Playlist">
+						<DataTemplate x:DataType="local:Source">
 							<Grid>
 								<Grid.RowDefinitions>
 									<RowDefinition Height="50" />

@@ -1,4 +1,5 @@
 ﻿#include "pch.h"
+#include "Source.h"
 #include "Sources.h"
 #if __has_include("Sources.g.cpp")
 #include "Sources.g.cpp"
@@ -49,7 +50,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 		for (const auto& item : playlistsJson.at(to_string(SpotifyQueryConstants::g_Items)))
 		{
-			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Playlist>(to_hstring(item.dump()));
+			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Source>(to_hstring(item.dump()));
 			SpotifySources().Append(playlist);
 		}
 

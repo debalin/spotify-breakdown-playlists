@@ -88,10 +88,10 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Playlist.idl">
+    <Midl Include="Track.idl">
       <Filter>Model</Filter>
     </Midl>
-    <Midl Include="Track.idl">
+    <Midl Include="Source.idl">
       <Filter>Model</Filter>
     </Midl>
   </ItemGroup>
