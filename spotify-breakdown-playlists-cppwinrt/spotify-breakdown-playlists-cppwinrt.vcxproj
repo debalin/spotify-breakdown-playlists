@@ -121,8 +121,8 @@
       <DependentUpon>Track.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="Tracks.h">
-      <DependentUpon>Tracks.xaml</DependentUpon>
+    <ClInclude Include="Methods.h">
+      <DependentUpon>Methods.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Utils.h" />
@@ -137,7 +137,7 @@
     <Page Include="Sources.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Tracks.xaml">
+    <Page Include="Methods.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
@@ -172,8 +172,8 @@
       <DependentUpon>Track.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
-    <ClCompile Include="Tracks.cpp">
-      <DependentUpon>Tracks.xaml</DependentUpon>
+    <ClCompile Include="Methods.cpp">
+      <DependentUpon>Methods.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="Utils.cpp" />
@@ -195,8 +195,8 @@
     <Midl Include="Track.idl">
       <SubType>Designer</SubType>
     </Midl>
-    <Midl Include="Tracks.idl">
-      <DependentUpon>Tracks.xaml</DependentUpon>
+    <Midl Include="Methods.idl">
+      <DependentUpon>Methods.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
   </ItemGroup>

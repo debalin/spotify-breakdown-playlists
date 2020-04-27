@@ -1,7 +1,7 @@
 ﻿#include "pch.h"
-#include "Tracks.h"
-#if __has_include("Tracks.g.cpp")
-#include "Tracks.g.cpp"
+#include "Methods.h"
+#if __has_include("Methods.g.cpp")
+#include "Methods.g.cpp"
 #endif
 
 using namespace winrt;
@@ -13,21 +13,21 @@ using namespace Windows::UI::Xaml::Media::Imaging;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-	Tracks::Tracks()
+	Methods::Methods()
 	{
 	}
 
-	BitmapImage Tracks::CoverImage()
+	BitmapImage Methods::CoverImage()
 	{
 		return m_Source.Thumbnail();
 	}
 
-	void Tracks::CoverImage(const BitmapImage& image)
+	void Methods::CoverImage(const BitmapImage& image)
 	{
 		m_Source.Thumbnail(image);
 	}
 
-	IAsyncOperation<hstring> Tracks::OnNavigatedTo(NavigationEventArgs e)
+	IAsyncOperation<hstring> Methods::OnNavigatedTo(NavigationEventArgs e)
 	{
 		m_Source = e.Parameter().as<IVector<IInspectable>>().GetAt(0).as<Source>();
 		m_Requestor = HttpManager(unbox_value<hstring>(e.Parameter().as<IVector<IInspectable>>().GetAt(1)).c_str());

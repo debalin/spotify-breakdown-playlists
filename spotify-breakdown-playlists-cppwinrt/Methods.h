@@ -1,14 +1,14 @@
 ﻿#pragma once
 
-#include "Tracks.g.h"
+#include "Methods.g.h"
 #include "HttpManager.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
-    struct Tracks : TracksT<Tracks>
+    struct Methods : MethodsT<Methods>
     {
 	public:
-        Tracks();
+        Methods();
 
 		Windows::UI::Xaml::Media::Imaging::BitmapImage CoverImage();
 		void CoverImage(const Windows::UI::Xaml::Media::Imaging::BitmapImage&);
@@ -23,7 +23,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation
 {
-    struct Tracks : TracksT<Tracks, implementation::Tracks>
+    struct Methods : MethodsT<Methods, implementation::Methods>
     {
     };
 }

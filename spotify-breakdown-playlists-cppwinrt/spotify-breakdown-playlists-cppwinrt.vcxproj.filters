@@ -69,13 +69,13 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)DensityStyles\Compact.xaml" />
-    <Page Include="Tracks.xaml">
-      <Filter>Xaml</Filter>
-    </Page>
     <Page Include="LoginPage.xaml">
       <Filter>Xaml</Filter>
     </Page>
     <Page Include="Sources.xaml">
+      <Filter>Xaml</Filter>
+    </Page>
+    <Page Include="Methods.xaml">
       <Filter>Xaml</Filter>
     </Page>
   </ItemGroup>

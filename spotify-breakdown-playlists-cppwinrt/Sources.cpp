@@ -1,10 +1,11 @@
 ﻿#include "pch.h"
-#include "Source.h"
 #include "Sources.h"
+#include "Source.h"
 #if __has_include("Sources.g.cpp")
 #include "Sources.g.cpp"
 #endif
 #include "Constants.h"
+#include "Methods.h"
 #include "Utils.h"
 
 using namespace winrt;
@@ -62,7 +63,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		const ItemClickEventArgs& e)
 	{
 		this->Frame().Navigate(
-			xaml_typename<spotify_breakdown_playlists_cppwinrt::Tracks>(),
+			xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods>(),
 			Utils::WrapNavigationArgs({ e.ClickedItem(), box_value(m_AccessToken) }));
 	}
 }
