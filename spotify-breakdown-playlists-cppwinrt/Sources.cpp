@@ -44,14 +44,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	IAsyncOperation<hstring> Sources::CollectSources()
 	{
-		auto playlistsStr = co_await m_Requestor.Request(SpotifyUriConstants::g_MyPlaylists);
+		auto sourcesStr = co_await m_Requestor.Request(SpotifyUriConstants::g_MyPlaylists);
 
-		json playlistsJson = json::parse(std::wstring(playlistsStr.c_str()));
+		json sourcesJson = json::parse(std::wstring(sourcesStr.c_str()));
 
-		for (const auto& item : playlistsJson.at(to_string(SpotifyQueryConstants::g_Items)))
+		for (const auto& item : sourcesJson.at(to_string(SpotifyQueryConstants::g_Items)))
 		{
-			auto playlist = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Source>(to_hstring(item.dump()));
-			SpotifySources().Append(playlist);
+			auto source = winrt::make<spotify_breakdown_playlists_cppwinrt::implementation::Source>(to_hstring(item.dump()));
+			SpotifySources().Append(source);
 		}
 
 		co_return L"";

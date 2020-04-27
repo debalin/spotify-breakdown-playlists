@@ -19,20 +19,20 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 
 	BitmapImage Tracks::CoverImage()
 	{
-		return m_Playlist.Thumbnail();
+		return m_Source.Thumbnail();
 	}
 
 	void Tracks::CoverImage(const BitmapImage& image)
 	{
-		m_Playlist.Thumbnail(image);
+		m_Source.Thumbnail(image);
 	}
 
 	IAsyncOperation<hstring> Tracks::OnNavigatedTo(NavigationEventArgs e)
 	{
-		m_Playlist = e.Parameter().as<IVector<IInspectable>>().GetAt(0).as<Source>();
+		m_Source = e.Parameter().as<IVector<IInspectable>>().GetAt(0).as<Source>();
 		m_Requestor = HttpManager(unbox_value<hstring>(e.Parameter().as<IVector<IInspectable>>().GetAt(1)).c_str());
 
-		auto tracksJson = co_await m_Requestor.Request(m_Playlist.TracksUri().c_str());
+		auto tracksJson = co_await m_Requestor.Request(m_Source.TracksUri().c_str());
 
 		co_return L"";
 	}

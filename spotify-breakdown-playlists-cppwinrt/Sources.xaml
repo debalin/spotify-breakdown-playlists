@@ -24,7 +24,7 @@
 				Grid.Row="0"
 				Margin="10,0,0,0"
 				Style="{StaticResource SubheaderTextBlockStyle}"
-				Text="Choose a playlist." />
+				Text="Choose a source." />
 			<ScrollViewer
 				Grid.Row="1"
 				Margin="0,5,0,0"

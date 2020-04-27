@@ -15,7 +15,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		Windows::Foundation::IAsyncOperation<hstring> OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs e);
 
 	private:
-		Source m_Playlist;
+		Source m_Source;
 		Windows::UI::Xaml::Media::Imaging::BitmapImage m_Image;
 		HttpManager m_Requestor;
     };
