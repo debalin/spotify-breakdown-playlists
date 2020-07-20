@@ -1,0 +1,9 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+    [default_interface]
+    runtimeclass Methods_Methods : Windows.UI.Xaml.Controls.Page
+    {
+        Methods_Methods();
+        Int32 MyProperty;
+    }
+}

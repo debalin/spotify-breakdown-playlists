@@ -9,11 +9,11 @@
 #include "Utils.h"
 
 using namespace winrt;
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Foundation::Collections;
 using namespace winrt::Windows::UI::Xaml;
 using namespace winrt::Windows::UI::Xaml::Controls;
 using namespace winrt::Windows::UI::Xaml::Navigation;
-using namespace winrt::Windows::Foundation;
-using namespace winrt::Windows::Foundation::Collections;
 using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
