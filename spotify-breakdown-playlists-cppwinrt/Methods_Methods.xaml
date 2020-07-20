@@ -17,7 +17,7 @@
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
-		<ListBox
+		<ListView
 			Grid.Row="0"
 			Grid.Column="0"
 			ItemsSource="{x:Bind MethodNames, Mode=OneWay}" />
