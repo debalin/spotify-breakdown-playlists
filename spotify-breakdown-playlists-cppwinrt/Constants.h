@@ -45,4 +45,9 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 
 		std::wstring g_Sources(const std::wstring& userId);
 	}
+
+	namespace AppConstants
+	{
+		const std::vector<std::wstring> g_MethodNames{L"Genre", L"Artist", L"Year"};
+	}
 }

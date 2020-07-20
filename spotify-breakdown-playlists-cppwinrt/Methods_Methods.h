@@ -6,12 +6,13 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
     struct Methods_Methods : Methods_MethodsT<Methods_Methods>
     {
+    public:
         Methods_Methods();
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        Windows::Foundation::Collections::IObservableVector<IInspectable> MethodNames() const;
 
-        void ClickHandler(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& args);
+    private:
+        Windows::Foundation::Collections::IObservableVector<IInspectable> m_MethodNames{ nullptr };
     };
 }
 

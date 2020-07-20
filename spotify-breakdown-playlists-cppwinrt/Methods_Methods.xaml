@@ -5,12 +5,21 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="using:spotify_breakdown_playlists_cppwinrt"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
 	mc:Ignorable="d">
 
-	<StackPanel
-		HorizontalAlignment="Center"
-		VerticalAlignment="Center"
-		Orientation="Horizontal">
-		<Button x:Name="Button" Click="ClickHandler">Methods</Button>
-	</StackPanel>
+	<Grid Name="MainGrid">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<ListBox
+			Grid.Row="0"
+			Grid.Column="0"
+			ItemsSource="{x:Bind MethodNames, Mode=OneWay}" />
+	</Grid>
 </Page>

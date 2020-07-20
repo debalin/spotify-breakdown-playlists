@@ -4,6 +4,6 @@ namespace spotify_breakdown_playlists_cppwinrt
     runtimeclass Methods_Methods : Windows.UI.Xaml.Controls.Page
     {
         Methods_Methods();
-        Int32 MyProperty;
+        Windows.Foundation.Collections.IObservableVector<IInspectable> MethodNames{ get; };
     }
 }

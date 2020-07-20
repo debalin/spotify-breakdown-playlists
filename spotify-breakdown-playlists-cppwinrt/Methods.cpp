@@ -16,8 +16,10 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	Methods::Methods()
 	{
 		InitializeComponent();
-		m_pages.push_back(std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>
-			(L"methods", winrt::xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods_Methods>()));
+		m_pages.push_back(
+			std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>(
+				L"methods", 
+				winrt::xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods_Methods>()));
 	}
 
 	BitmapImage Methods::CoverImage()
