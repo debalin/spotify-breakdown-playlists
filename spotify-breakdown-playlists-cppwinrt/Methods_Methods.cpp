@@ -19,6 +19,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
         {
             MethodNames().Append(box_value(to_hstring(methodName.c_str())));
         }
+        MethodList().SelectedItem(MethodNames().GetAt(0));
     }
 
     Windows::Foundation::Collections::IObservableVector<IInspectable> Methods_Methods::MethodNames() const

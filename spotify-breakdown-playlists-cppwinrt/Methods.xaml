@@ -14,7 +14,7 @@
 		PaneTitle="">
 		<muxc:NavigationView
 			x:Name="NavView"
-			Header="Choose a method."
+			Header=""
 			IsBackButtonVisible="Collapsed"
 			IsSettingsVisible="False"
 			Loaded="NavView_Loaded"
