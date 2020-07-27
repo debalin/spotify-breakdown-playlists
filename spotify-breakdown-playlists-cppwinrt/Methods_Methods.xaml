@@ -10,19 +10,35 @@
 
 	<Grid Name="MainGrid">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
-			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
-		<ListView
-			Name="MethodList"
-			Grid.Row="1"
+		<SplitView
+			x:Name="splitView"
+			Grid.Row="0"
 			Grid.Column="0"
-			BorderBrush="Black"
-			BorderThickness="1"
-			ItemsSource="{x:Bind MethodNames, Mode=OneWay}" />
+			DisplayMode="Inline"
+			IsPaneOpen="True"
+			PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}">
+			<SplitView.Pane>
+				<Grid Name="MethodGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<ListView
+						Name="MethodList"
+						Grid.Row="0"
+						Grid.Column="0"
+						BorderBrush="Black"
+						BorderThickness="1"
+						ItemsSource="{x:Bind MethodNames, Mode=OneWay}" />
+				</Grid>
+			</SplitView.Pane>
+		</SplitView>
 	</Grid>
 </Page>
