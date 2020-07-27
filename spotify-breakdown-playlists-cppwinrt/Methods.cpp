@@ -43,21 +43,22 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 	}
 
 	void Methods::ContentFrame_NavigationFailed(
-		const Windows::Foundation::IInspectable& sender, 
+		const Windows::Foundation::IInspectable&, 
 		const Windows::UI::Xaml::Navigation::NavigationFailedEventArgs& args)
 	{
-
+		throw hresult_error(
+			E_FAIL, 
+			hstring(L"Failed to load page: ") + args.SourcePageType().Name);
 	}
 
 	void Methods::NavView_SelectionChanged(
-		const muxc::NavigationView& sender,
+		const muxc::NavigationView&,
 		const muxc::NavigationViewSelectionChangedEventArgs& args)
 	{
 		if (args.SelectedItemContainer())
 		{
 			NavView_Navigate(
-				winrt::unbox_value_or<winrt::hstring>(
-					args.SelectedItemContainer().Tag(), L"").c_str(),
+				winrt::unbox_value_or<winrt::hstring>(args.SelectedItemContainer().Tag(), L"").c_str(),
 				args.RecommendedNavigationTransitionInfo());
 		}
 	}
@@ -67,11 +68,13 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		const Windows::UI::Xaml::Media::Animation::NavigationTransitionInfo& transitionInfo)
 	{
 		Windows::UI::Xaml::Interop::TypeName pageTypeName;
-		for (auto&& eachPage : m_pages)
+		std::wstring header;
+		for (size_t i = 0; i < m_pages.size(); i++)
 		{
-			if (eachPage.first == navItemTag)
+			if (m_pages[i].first == navItemTag)
 			{
-				pageTypeName = eachPage.second;
+				pageTypeName = m_pages[i].second;
+				header = m_headers[i];
 				break;
 			}
 		}
@@ -81,7 +84,19 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		if ((pageTypeName.Name != L"") && 
 			(preNavPageType.Name != pageTypeName.Name))
 		{
+			// Change header and navigate to page.
+			NavView().Header(box_value(header.c_str()));
 			ContentFrame().Navigate(pageTypeName, nullptr, transitionInfo);
 		}
+	}
+
+	void Methods::NavView_Loaded(
+		const Windows::Foundation::IInspectable&, 
+		const winrt::Windows::UI::Xaml::RoutedEventArgs&)
+	{
+		NavView().SelectedItem(NavView().MenuItems().GetAt(0));
+		NavView_Navigate(
+			L"methods",
+			Windows::UI::Xaml::Media::Animation::EntranceNavigationTransitionInfo());
 	}
 }

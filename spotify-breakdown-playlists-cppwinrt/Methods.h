@@ -28,7 +28,12 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		HttpManager m_Requestor;
 
 		std::vector<std::pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>> m_pages;
-    };
+		std::vector<std::wstring> m_headers{ 
+			L"Choose a method.", 
+			L"Verify songs in playlist."};
+	public:
+		void NavView_Loaded(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e);
+	};
 }
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::factory_implementation

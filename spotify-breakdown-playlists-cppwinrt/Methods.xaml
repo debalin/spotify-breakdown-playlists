@@ -14,14 +14,16 @@
 		PaneTitle="">
 		<muxc:NavigationView
 			x:Name="NavView"
+			Header="Choose a method."
 			IsBackButtonVisible="Collapsed"
-			IsPaneOpen="False"
+			IsSettingsVisible="False"
+			Loaded="NavView_Loaded"
 			PaneDisplayMode="Top"
 			SelectionChanged="NavView_SelectionChanged">
 			<muxc:NavigationView.MenuItems>
-				<muxc:NavigationViewItem Content="Songs" Tag="songs" />
-				<muxc:NavigationViewItemSeparator />
 				<muxc:NavigationViewItem Content="Methods" Tag="methods" />
+				<muxc:NavigationViewItemSeparator />
+				<muxc:NavigationViewItem Content="Songs" Tag="songs" />
 			</muxc:NavigationView.MenuItems>
 			<ScrollViewer>
 				<Frame

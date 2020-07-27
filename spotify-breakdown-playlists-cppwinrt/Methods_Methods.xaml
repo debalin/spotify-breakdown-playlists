@@ -18,7 +18,7 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<ListView
-			Grid.Row="0"
+			Grid.Row="1"
 			Grid.Column="0"
 			ItemsSource="{x:Bind MethodNames, Mode=OneWay}" />
 	</Grid>
