@@ -1,0 +1,9 @@
+namespace spotify_breakdown_playlists_cppwinrt
+{
+    [default_interface]
+    runtimeclass Methods_Songs : Windows.UI.Xaml.Controls.Page
+    {
+        Methods_Songs();
+        Windows.Foundation.Collections.IObservableVector<IInspectable> Songs{ get; };
+    }
+}

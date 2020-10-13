@@ -81,6 +81,9 @@
     <Page Include="Methods_Methods.xaml">
       <Filter>Xaml</Filter>
     </Page>
+    <Page Include="Methods_Songs.xaml">
+      <Filter>Xaml</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Spotify_Logo_RGB_Green.png">
