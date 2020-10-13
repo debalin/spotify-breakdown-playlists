@@ -36,3 +36,16 @@ You would need the following things to build the solution and view the applicati
 	.\vcpkg.exe install nlohmann-json:x64-uwp
 	```
 5. Clone this repository and build `spotify-breakdown-playlists-cppwinrt.sln`.
+6. Add a file inside the project directory called `SpotifyClientId.h` which contains the Spotify Developer Client ID like so:
+
+    ```cpp
+    #pragma once
+
+    namespace winrt::spotify_breakdown_playlists_cppwinrt
+    {
+        namespace spotify_app_info
+	    {
+	        const std::wstring client_id = L"...";
+	    }
+    }
+    ```
