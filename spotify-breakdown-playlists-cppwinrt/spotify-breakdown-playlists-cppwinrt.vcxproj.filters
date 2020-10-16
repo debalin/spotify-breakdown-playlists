@@ -17,6 +17,9 @@
     <ClCompile Include="Constants.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="DataStore.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthenticationManager.h">
@@ -35,6 +38,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="SpotifyClientId.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStore.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,7 +2,8 @@
 
 #include "LoginPage.h"
 #include "LoginPage.g.cpp"
-#include <Sources.h>
+#include "DataStore.h"
+#include "Sources.h"
 
 using namespace winrt;
 using namespace winrt::Windows::ApplicationModel::Core;
@@ -18,17 +19,15 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
         InitializeComponent();
     }
 
-	IAsyncOperation<hstring> LoginPage::LoginHandler(
+	IAsyncAction LoginPage::LoginHandler(
 		const IInspectable&,
 		const RoutedEventArgs& e)
     {
-		auto accessToken = co_await m_authManager.AuthenticateAsync();
+		co_await AuthenticationManager::Instance()->AuthenticateAsync();
 
-		this->Frame().Navigate(
-			xaml_typename<spotify_breakdown_playlists_cppwinrt::Sources>(), 
-			box_value(to_hstring(accessToken)));
+		this->Frame().Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::Sources>());
 
-		co_return accessToken;
+		co_return;
     }
 
 	void LoginPage::loginButton_PointerEntered(

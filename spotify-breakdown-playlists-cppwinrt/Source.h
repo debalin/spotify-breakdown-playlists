@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Source.g.h"
-#include "HttpManager.h"
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {

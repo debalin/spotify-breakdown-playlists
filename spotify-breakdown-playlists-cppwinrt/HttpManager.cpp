@@ -10,22 +10,23 @@ using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt
 {
-	HttpManager::HttpManager(const std::wstring& accessToken) :
-		m_AccessToken(accessToken)
+	HttpManager::HttpManager()
 	{
 
 	}
 
+	HttpManager* HttpManager::Instance()
+	{
+		static std::unique_ptr<HttpManager> g_pHttpManager(new HttpManager());
+
+		return g_pHttpManager.get();
+	}
+
 	IAsyncOperation<hstring> HttpManager::Request(const std::wstring& uri)
 	{
-		if (m_AccessToken.empty())
-		{
-			throw std::exception("No access token provided.");
-		}
-
 		m_HttpClient.DefaultRequestHeaders().Authorization(HttpCredentialsHeaderValue(
 			L"Bearer",
-			to_hstring(m_AccessToken.c_str())));
+			to_hstring(AuthenticationManager::Instance()->GetAccessToken().c_str())));
 
 		return co_await m_HttpClient.GetStringAsync(Uri(uri));
 	}

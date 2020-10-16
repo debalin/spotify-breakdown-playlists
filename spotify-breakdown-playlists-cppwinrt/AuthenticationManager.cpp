@@ -15,7 +15,14 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		m_RedirectUri = WebAuthenticationBroker::GetCurrentApplicationCallbackUri().ToString();
 	}
 
-	IAsyncOperation<hstring> AuthenticationManager::AuthenticateAsync()
+	AuthenticationManager* AuthenticationManager::Instance()
+	{
+		static std::unique_ptr<AuthenticationManager> g_AuthManager(new AuthenticationManager(AuthenticationManager::Mode::ImplicitGrant));
+
+		return g_AuthManager.get();
+	}
+
+	IAsyncAction AuthenticationManager::AuthenticateAsync()
 	{
 		std::vector<std::pair<std::wstring, std::wstring>> spotifyAuthParams;
 		spotifyAuthParams.push_back(std::make_pair(SpotifyQueryConstants::g_ClientIdParam, SpotifyQueryConstants::g_ClientIdValue));
@@ -43,7 +50,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		{
 		}
 
-		co_return hstring(m_AccessToken);
+		co_return;
 	}
 
 	std::wstring AuthenticationManager::GetAccessToken()

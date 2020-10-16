@@ -5,6 +5,7 @@
 #include "Sources.g.cpp"
 #endif
 #include "Constants.h"
+#include "DataStore.h"
 #include "Methods.h"
 #include "Utils.h"
 
@@ -14,7 +15,6 @@ using namespace winrt::Windows::Foundation::Collections;
 using namespace winrt::Windows::UI::Xaml;
 using namespace winrt::Windows::UI::Xaml::Controls;
 using namespace winrt::Windows::UI::Xaml::Navigation;
-using json = nlohmann::json;
 
 namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 {
@@ -30,24 +30,18 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		return m_Sources;
 	}
 
-	IAsyncOperation<hstring> Sources::OnNavigatedTo(NavigationEventArgs e)
+	IAsyncAction Sources::OnNavigatedTo(NavigationEventArgs e)
 	{
-		m_AccessToken = unbox_value<hstring>(e.Parameter()).c_str();
-		m_Requestor = HttpManager(m_AccessToken);
-		m_UserId = co_await m_Requestor.Request(
-			SpotifyUriConstants::g_Me,
-			SpotifyQueryConstants::g_Id);
-
 		co_await CollectSources();
 
-		co_return hstring(m_AccessToken);
+		co_return;
 	}
 
 	IAsyncOperation<hstring> Sources::CollectSources()
 	{
-		auto sourcesStr = co_await m_Requestor.Request(SpotifyUriConstants::g_MyPlaylists);
+		auto sourcesStr = co_await HttpManager::Instance()->Request(SpotifyUriConstants::g_MyPlaylists);
 
-		json sourcesJson = json::parse(std::wstring(sourcesStr.c_str()));
+		nlohmann::json sourcesJson = nlohmann::json::parse(std::wstring(sourcesStr.c_str()));
 
 		for (const auto& item : sourcesJson.at(to_string(SpotifyQueryConstants::g_Items)))
 		{
@@ -62,8 +56,7 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 		const IInspectable&,
 		const ItemClickEventArgs& e)
 	{
-		this->Frame().Navigate(
-			xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods>(),
-			Utils::WrapNavigationArgs({ e.ClickedItem(), box_value(m_AccessToken) }));
+		DataStore::Instance()->SetSource(std::move(*(e.ClickedItem().as<Source>())));
+		this->Frame().Navigate(xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods>());
 	}
 }

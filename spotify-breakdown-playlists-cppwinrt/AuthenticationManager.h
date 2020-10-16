@@ -9,21 +9,26 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt
 		{
 			ImplicitGrant
 		};
+		static AuthenticationManager* Instance();
 
-		AuthenticationManager(Mode mode);
+		~AuthenticationManager() {};
 
-		Windows::Foundation::IAsyncOperation<hstring> AuthenticateAsync();
+		Windows::Foundation::IAsyncAction AuthenticateAsync();
 		std::wstring GetAccessToken();
 		int SecondsLeft();
 
+		AuthenticationManager() = delete;
+		AuthenticationManager(const AuthenticationManager&) = delete;
+		AuthenticationManager& operator=(const AuthenticationManager&) = delete;
+
 	private:
 		Mode m_mode;
-
 		std::wstring m_AccessToken;
 		std::wstring m_RedirectUri;
-
 		int m_ExpiresIn;
 		int m_LastAuthenticatedAt;
+
+		AuthenticationManager(Mode mode);
 	};
 }
 

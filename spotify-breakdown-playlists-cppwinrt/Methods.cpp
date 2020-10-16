@@ -1,8 +1,10 @@
 ﻿#include "pch.h"
 #include "Methods.h"
+#include "DataStore.h"
 #if __has_include("Methods.g.cpp")
 #include "Methods.g.cpp"
 #endif
+#include "HttpManager.h"
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
@@ -20,26 +22,27 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
 			std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>(
 				L"methods", 
 				winrt::xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods_Methods>()));
+		m_pages.push_back(
+			std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>(
+				L"songs",
+				winrt::xaml_typename<spotify_breakdown_playlists_cppwinrt::Methods_Songs>()));
 	}
 
 	BitmapImage Methods::CoverImage()
 	{
-		return m_Source.Thumbnail();
+		return DataStore::Instance()->GetSource().Thumbnail();
 	}
 
 	void Methods::CoverImage(const BitmapImage& image)
 	{
-		m_Source.Thumbnail(image);
+		DataStore::Instance()->GetSource().Thumbnail(image);
 	}
 
-	IAsyncOperation<hstring> Methods::OnNavigatedTo(NavigationEventArgs e)
+	IAsyncAction Methods::OnNavigatedTo(NavigationEventArgs e)
 	{
-		m_Source = e.Parameter().as<IVector<IInspectable>>().GetAt(0).as<Source>();
-		m_Requestor = HttpManager(unbox_value<hstring>(e.Parameter().as<IVector<IInspectable>>().GetAt(1)).c_str());
+		auto tracksJson = co_await HttpManager::Instance()->Request(DataStore::Instance()->GetSource().TracksUri().c_str());
 
-		auto tracksJson = co_await m_Requestor.Request(m_Source.TracksUri().c_str());
-
-		co_return L"";
+		co_return;
 	}
 
 	void Methods::ContentFrame_NavigationFailed(

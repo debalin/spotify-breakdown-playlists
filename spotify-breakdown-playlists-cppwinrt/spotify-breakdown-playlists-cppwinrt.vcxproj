@@ -100,6 +100,7 @@
   <ItemGroup>
     <ClInclude Include="AuthenticationManager.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="DataStore.h" />
     <ClInclude Include="HttpManager.h" />
     <ClInclude Include="Methods_Methods.h">
       <DependentUpon>Methods_Methods.xaml</DependentUpon>
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="AuthenticationManager.cpp" />
     <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="DataStore.cpp" />
     <ClCompile Include="HttpManager.cpp" />
     <ClCompile Include="Methods_Methods.cpp">
       <DependentUpon>Methods_Methods.xaml</DependentUpon>
