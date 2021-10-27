@@ -12,6 +12,8 @@ namespace winrt::spotify_breakdown_playlists_cppwinrt::implementation
     Methods_Songs::Methods_Songs()
     {
         InitializeComponent();
+
+
     }
 
     Windows::Foundation::Collections::IObservableVector<IInspectable> Methods_Songs::Songs() const

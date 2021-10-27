@@ -6,9 +6,31 @@
 	xmlns:local="using:spotify_breakdown_playlists_cppwinrt"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d">
+	<Page.Resources>
+		<CollectionViewSource x:Name="SongsCollection" IsSourceGrouped="True" />
+	</Page.Resources>
 
 	<StackPanel
 		HorizontalAlignment="Center"
 		VerticalAlignment="Center"
-		Orientation="Horizontal" />
+		Orientation="Horizontal">
+		<Grid Name="MethodGrid">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<ListView
+				Grid.Row="0"
+				Grid.Column="0"
+				ItemsSource="{x:Bind SongsCollection.View, Mode=OneWay}">
+				<ListView.ItemsPanel>
+					<ItemsPanelTemplate>
+						<ItemsStackPanel AreStickyGroupHeadersEnabled="True" />
+					</ItemsPanelTemplate>
+				</ListView.ItemsPanel>
+			</ListView>
+		</Grid>
+	</StackPanel>
 </Page>
